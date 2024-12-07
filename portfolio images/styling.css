@@ -1,0 +1,151 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ------------------------Body Styling----------------------- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #000000;
+    line-height: 3.0 ;    
+}
+
+/*--------------------- Header Styling ---------------------------*/
+
+
+/*----------------------Nav bar ---------------------------------- */
+
+.logoimg{
+    display: flex; /* Enables Flexbox */
+    align-items: center; /* Vertically aligns items */
+    justify-content: left; /* Creates space between text and photo */
+    gap: 10px; /* Adds space between text and photo */
+    
+    width: 200px;
+    height:100px;
+    margin: 0 auto;
+    padding-bottom: 80px;
+    padding-top: 40px;
+    padding-right: 450px ;
+    margin:40px
+    
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color:white;
+    color: rgb(167, 100, 100);
+     font-weight: bolder;
+     font-family: 'Times New Roman', Times, serif;
+     padding-left: 40px;
+}
+
+
+.home{
+    display: flex;
+    justify-content: center;
+    
+
+
+}
+nav a {
+    color: #471b1b;
+    text-decoration: none;
+    line-height: 10px;
+    margin: 10px;
+    font-size: 20px;
+    padding: 0px;
+    padding-right:60px
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+.solid-line {
+    border: 0;
+    border-top: 2px solid black; /* Change width and color as needed */
+    margin: 20px 0; /* Adjust space around the line */
+}
+
+/* -------------------main section starts------------------------------------ */
+.text-photo-container {
+    display: flex; /* Enables Flexbox */
+    align-items: center; /* Vertically aligns items */
+    justify-content: space-between; /* Creates space between text and photo */
+    gap: 20px; /* Adds space between text and photo */
+    padding: 20px;
+    max-width: 1200px; /* Optional: Limit container width */
+    margin: 0 auto; /* Centers the container */
+}
+
+/* Text Styling */
+.text {
+    flex: 1; /* Allows the text to take up equal or more space */
+    text-align: left; 
+    color: #634d4d;/* Aligns text to the left */
+}
+
+.text h1 {
+    display: flex; 
+    justify-content: center;
+    font-size: 2rem;
+    padding-right: 150px;
+    font-family: 'Times New Roman', Times, serif;
+    
+      
+}
+.text h2{
+    display: flex; 
+    justify-content: center;
+    font-size: 2rem;
+    padding-right: 130px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-bottom: 15px;
+    
+
+}
+
+.text p {
+    display: flex; 
+    justify-content: center;
+    font-size: 1rem;
+    line-height: 1.8;
+    padding-right: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.text h3 input[type="button"] {
+    display: flex; 
+    justify-content: center;
+    font-size: x-large;
+    border-radius: 50px; 
+    padding: 10px;
+    margin:40px;
+    color: #684f4f;
+    margin-left: 250px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+
+/* Photo Styling */
+.photo img {
+    width: 350px; /* Adjust photo size */
+    height: auto;
+    border-radius: 50px; /* Adds rounded corners */
+}
+
+.solid-line {
+    border: 0;
+    border-top: 2px solid black; /* Change width and color as needed */
+    margin: 20px 0; /* Adjust space around the line */
+}
+/* .------------------footer---------------------------- */
+.text {
+    align-items: center;
+}

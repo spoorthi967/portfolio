@@ -1,0 +1,224 @@
+
+/* ******************THIS IS SAME FOR EVERY WEBSITE DEFAULT General Reset**************************** */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*********************************BODY STYLING****************************************************/
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+/********************************NAVBAR STYLING******************************************************* */
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    /* border-bottom: 2px solid #000;  */
+    
+}
+
+.navbar .logo h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #000;
+    padding-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.navbar .highlight {
+    color: #c82333; /* Red color */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+}
+
+.text {
+    color: #da2a2a;               
+    font-size: 16px;          
+    font-family: 'Times New Roman', Times, serif; 
+    padding-right: 20px;
+    font-size: 20px;
+
+
+}
+
+.navbar nav ul li {
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    padding:10px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 20px;
+}
+
+.navbar nav ul li a:hover {
+    color: #da2828c4; 
+}
+
+/*****************************MAIN SECTION STYLING**************************************************- */
+
+/* Experience section container */
+.experience {
+    max-width: 1250px;
+    margin: 20px;
+    padding: 40px; 
+    border-radius: 15px;
+    margin-left: 160px;
+    
+}
+
+
+/* Section title */
+.experience h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1600px;
+    margin: 20px auto;
+    text-align: center;
+   
+}
+.text1{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    margin-bottom: 0px;
+    color: #da2828c4; 
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+/* Job entry container */
+.job {
+    display: flex;
+    align-items: flex-start;
+    margin:20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    border: 2px solid #000;
+    line-height: 25px;
+    border-radius: 10px; 
+}
+
+/* Icon section */
+.job .icon {
+    
+    font-size: 2rem;
+    color: #000000; /* Red color for icons */
+    margin-right: 15px;
+    margin-top: 60px;
+    padding-left: 40px;
+}
+
+/* Job details */
+.job .details {
+    flex: 1;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 80px;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+/* Job title styling */
+.job h2 {
+    font-size: 1.8rem;
+    color: #da2828c4; 
+    margin-bottom: 5px;
+    margin-left: 280px;
+
+}
+
+/* Role and Year styling */
+.job p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.role {
+    font-weight: bold;
+    color: #c82333; /* Red color */
+}
+
+.year {
+    font-style: italic;
+    color: #333;
+}
+
+/* Job descriptions */
+.job ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.job ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #444;
+   
+}
+
+
+
+/***************************FOOTER STYLING*************************************************** */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+footer .social-icons {
+    margin-bottom: 10px;
+    margin-top: 40px;
+   
+}
+
+footer .social-icons a {
+    font-size: 2rem;
+    color: #000;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 10px;
+   
+}
+
+footer .social-icons a:hover {
+    color: #c82333; /* Red color on hover */
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #555;
+   margin-top: 40px;
+}
+    
+

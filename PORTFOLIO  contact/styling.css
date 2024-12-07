@@ -1,0 +1,200 @@
+
+/* ******************THIS IS SAME FOR EVERY WEBSITE DEFAULT General Reset**************************** */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*********************************BODY STYLING****************************************************/
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+/********************************NAVBAR STYLING******************************************************* */
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+   
+    
+}
+
+.navbar .logo h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #000;
+    padding-left: 20px;
+
+}
+
+.navbar .highlight {
+    color: #c82333; /* Red color */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+}
+
+.text {
+    color: #da2a2a;               
+    font-size: 16px;          
+    font-family: 'Times New Roman', Times, serif; 
+    padding-right: 20px;
+    font-size: 20px;
+
+}
+
+.navbar nav ul li {
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    padding:10px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 20px;
+}
+
+.navbar nav ul li a:hover {
+    color: #da2828c4; 
+}
+
+/*****************************MAIN SECTION STYLING**************************************************- */
+
+/* Container Styling */
+.container {
+    display: flex;
+    width: 700px;
+    margin-left: 400px;
+    background: white;
+    /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Left Section Styling */
+.left {
+    flex: 1;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-right: 200px;
+}
+
+.left h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #da2828c4; 
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.left p {
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Right Section Styling */
+.right {
+    flex: 1;
+    padding: 20px;
+}
+
+.right h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #da2828c4; 
+    font-family: 'Times New Roman', Times, serif;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #6e767a;
+}
+
+form input[type="submit"] {
+    background:#da2828c4; ;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition:  0.3s;
+}
+
+form input[type="submit"]:hover {
+    background: #c78c8cc4; ;
+}
+
+/***************************FOOTER STYLING*************************************************** */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+  
+}
+
+footer .social-icons {
+    margin-bottom: 10px;
+    margin-top: 40px;
+   
+}
+
+footer .social-icons a {
+    font-size: 2rem;
+    color: #000;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 10px;
+   
+}
+
+footer .social-icons a:hover {
+    color: #c82333; /* Red color on hover */
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #555;
+   margin-top: 40px;
+}
+    
+

@@ -1,0 +1,175 @@
+
+/* ----******************THIS IS SAME FOR EVERY WEBSITE DEFAULT General Reset**************************** */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*********************************BODY STYLING****************************************************/
+
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #000;
+}
+
+/********************************NAVBAR STYLING******************************************************* */
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+   
+    
+}
+
+.navbar .logo h1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    color: #000;
+    padding-left: 20px;
+
+}
+
+.navbar .highlight {
+    color: #c82333; /* Red color */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 5px;
+}
+
+.text{
+    color: #da2a2a;               
+    font-size: 16px;          
+    font-family: 'Times New Roman', Times, serif; 
+    padding-right: 5px;
+    font-size: 20px;
+
+}
+
+.navbar nav ul li {
+    font-size: 1rem;
+    font-family: 'Times New Roman', Times, serif;
+    padding-right: 40px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 20px;
+}
+
+.navbar nav ul li a:hover {
+    color: #da2828c4; 
+}
+
+/*****************************MAIN SECTION STYLING**************************************************- */
+/* Skills Section */
+.skills-container {
+    max-width: 1000px;
+    margin: 100px ; 
+    padding: 20px;
+}
+.skillslogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding-right: 180px;
+}
+
+.text1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: #da2828c4; 
+    font-weight: bolder;
+}
+
+
+
+.skill-category {
+    
+    margin-bottom: 20px;
+    padding-left: 300px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 420px ;
+}
+
+.skill-category h3 {
+   
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    border-left: 5px solid #e74c3c;
+    padding-left: 10px;
+}
+
+.skill-list {
+    
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.skill-list li {
+    
+    font-size: 1rem;
+    margin-bottom: 5px;
+    line-height: 1.8;
+}
+
+/* .**************************FOOTER STYLING*************************************************** */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    
+}
+
+footer .social-icons {
+    margin-bottom: 10px;
+    margin-top: 40px;
+   
+}
+
+footer .social-icons a {
+    font-size: 2rem;
+    color: #000;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 10px;
+   
+}
+
+footer .social-icons a:hover {
+    color: #c82333; /* Red color on hover */
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #555;
+   margin-top: 40px;
+}
+    
+
