@@ -1,0 +1,159 @@
+/* ===== EDUCATION (SAME BACKGROUND AS HOME) ===== */
+
+.eduSlideWrap {
+  padding: 22px;
+}
+
+/* Big canvas like Home */
+.eduSliderCanvas {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #d1fae5, #bae6fd);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative shapes */
+.eduSliderCanvas::before {
+  content: "";
+  position: absolute;
+  inset: -40px auto auto -50px;
+  width: 240px;
+  height: 240px;
+  background: rgba(56, 189, 248, 0.18);
+  transform: rotate(12deg);
+  border-radius: 36px;
+}
+
+.eduSliderCanvas::after {
+  content: "";
+  position: absolute;
+  right: -110px;
+  top: -90px;
+  width: 260px;
+  height: 260px;
+  background: rgba(34, 197, 94, 0.14);
+  border-radius: 50%;
+}
+
+/* Title */
+.eduSlideTitle {
+  position: relative;
+  z-index: 1;
+  font-size: 38px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Slider */
+.eduSlider {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.eduSlides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Slide card */
+.eduSlide {
+  min-width: 100%;
+  background: linear-gradient(135deg, #d1fae5, #bae6fd);
+  backdrop-filter: blur(16px);
+  border-radius: 26px;
+  padding: 32px 28px;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Icon */
+.eduIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #38bdf8, #22c55e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: linear-gradient(135deg, #d1fae5, #bae6fd);
+}
+
+/* Text */
+.eduText h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #020617;
+}
+
+.eduText span {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #047857;
+}
+
+.eduText p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(2, 6, 23, 0.78);
+}
+
+.eduText small {
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(2, 6, 23, 0.6);
+}
+
+/* Dots */
+.eduDots {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.eduDots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(2, 6, 23, 0.25);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.eduDots .dot.active {
+  width: 26px;
+  border-radius: 20px;
+  background: #22c55e;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .eduSlideTitle {
+    font-size: 32px;
+  }
+
+  .eduSlide {
+    padding: 26px 22px;
+  }
+}
+

@@ -1,0 +1,363 @@
+/* src/pages/Home.css */
+
+/* ===== Education color combo (blue + green glass) ===== */
+:root {
+  --tpl-bg: linear-gradient(135deg, #d1fae5, #bae6fd);
+  --tpl-card: rgba(255, 255, 255, 0.6);
+
+  --tpl-green: #22c55e;
+  --tpl-blue: #38bdf8;
+
+  --tpl-text: #0f172a;
+  --tpl-muted: rgba(15, 23, 42, 0.72);
+  --tpl-border: rgba(255, 255, 255, 0.35);
+}
+
+/* Wrapper section */
+.homeWrap {
+  padding: 22px;
+}
+
+/* Big template canvas */
+.homeGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--tpl-bg);
+  border: 1px solid var(--tpl-border);
+  border-radius: 24px;
+  padding: 26px;
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft shapes (Education style) */
+.homeGrid::before {
+  content: "";
+  position: absolute;
+  inset: -40px auto auto -50px;
+  width: 240px;
+  height: 240px;
+  background: rgba(56, 189, 248, 0.18);
+  transform: rotate(12deg);
+  border-radius: 36px;
+}
+.homeGrid::after {
+  content: "";
+  position: absolute;
+  right: -110px;
+  top: -90px;
+  width: 260px;
+  height: 260px;
+  background: rgba(34, 197, 94, 0.14);
+  border-radius: 50%;
+}
+
+.coverCol,
+.contentCol {
+  position: relative;
+  z-index: 1;
+}
+
+/* LEFT: cover mock */
+.coverCol {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 6px;
+}
+
+.coverMock {
+  width: 360px;
+  background: var(--tpl-card);
+  border: 1px solid var(--tpl-border);
+  border-radius: 18px;
+  padding: 18px 18px 14px;
+  position: relative;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* curved corner gradient shape */
+.coverMock::before {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.35),
+    rgba(34, 197, 94, 0.35)
+  );
+  border-radius: 0 24px 0 140px;
+  transform: rotate(8deg);
+}
+
+.coverTop {
+  position: relative;
+  z-index: 1;
+}
+
+.coverKicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--tpl-text);
+}
+
+.coverTitle {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  color: var(--tpl-green);
+  margin-top: 2px;
+}
+
+.coverLine {
+  width: 112px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tpl-blue), var(--tpl-green));
+  border-radius: 999px;
+  margin-top: 8px;
+}
+
+.coverPhotoFrame {
+  margin-top: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--tpl-border);
+  background: rgba(241, 245, 249, 0.9);
+}
+
+.coverPhoto {
+  
+  width: 90%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Name bar */
+.coverNameBar {
+  margin-top: 12px;
+  background: linear-gradient(135deg, var(--tpl-blue), var(--tpl-green));
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: #fff;
+  text-align: center;
+}
+
+.coverName {
+  font-weight: 900;
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+
+.coverRole {
+  font-size: 12px;
+  opacity: 0.95;
+  margin-top: 2px;
+}
+
+.coverMeta {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--tpl-muted);
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  opacity: 0.5;
+}
+
+/* subtle shadow behind cover */
+.coverShadow {
+  width: 360px;
+  height: 14px;
+  background: rgba(0, 0, 0, 0.12);
+  filter: blur(10px);
+  border-radius: 999px;
+  margin-top: 10px;
+  margin-left: 6px;
+}
+
+/* RIGHT: text content */
+.heroHeading {
+  margin: 0;
+  font-size: 44px;
+  line-height: 1.06;
+  font-weight: 900;
+  margin-top: 40px;
+  color: var(--tpl-text);
+  letter-spacing: 0.6px;
+}
+
+.heroHeading span {
+  color: var(--tpl-green);
+}
+
+.heroSub {
+  margin: 14px 0 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--tpl-muted);
+  max-width: 560px;
+}
+
+.includesRow {
+  margin-top: 18px;
+}
+
+.includesLabel {
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(2, 6, 23, 0.75);
+  letter-spacing: 0.9px;
+}
+
+.includesLinks {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  text-decoration: none;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--tpl-border);
+  background: rgba(255, 255, 255, 0.75);
+  color: var(--tpl-text);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.pill:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+}
+
+.pillPrimary {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+/* Buttons */
+.actionsRow {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btnGreen {
+  text-decoration: none;
+  background: linear-gradient(135deg, var(--tpl-blue), var(--tpl-green));
+  color: #fff;
+  font-weight: 900;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: none;
+}
+
+.btnGreen:hover {
+  filter: brightness(0.95);
+}
+
+.btnOutlineGreen {
+  text-decoration: none;
+  background: transparent;
+  color: var(--tpl-green);
+  font-weight: 900;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(34, 197, 94, 0.45);
+}
+
+.btnOutlineGreen:hover {
+  background: rgba(34, 197, 94, 0.12);
+}
+
+/* icon row like the template */
+.iconRow {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.iconCard {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid var(--tpl-border);
+  background: rgba(255, 255, 255, 0.78);
+  display: grid;
+  place-items: center;
+}
+
+.iconText {
+  font-weight: 900;
+  color: var(--tpl-text);
+  font-size: 14px;
+}
+
+.tinyNote {
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(15, 23, 42, 0.58);
+}
+
+/* ===== ICON ACTION BUTTONS ===== */
+.actionIcons {
+  margin-top: 22px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.actionIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #0284c7;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.actionIcon:hover {
+  background: linear-gradient(135deg, var(--tpl-blue), var(--tpl-green));
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .homeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .coverCol {
+    align-items: center;
+    padding-left: 0;
+  }
+
+  .coverMock,
+  .coverShadow {
+    width: min(420px, 100%);
+  }
+}

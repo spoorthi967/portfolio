@@ -1,0 +1,111 @@
+
+/* ===== CONTACT CENTERED SLIDE ===== */
+
+.contactSlideWrap {
+  padding: 70px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #d1fae5, #bae6fd);
+  min-height: 60vh;
+}
+
+.contactSlideTitle {
+  font-size: 38px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 40px;
+}
+
+/* SLIDE */
+.contactSlider {
+  width: 100%;
+  max-width: 520px;
+  margin: auto;
+}
+
+.contactSlide {
+  background: linear-gradient(135deg, #d1fae5, #bae6fd);
+  backdrop-filter: blur(16px);
+  border-radius: 26px;
+  padding: 36px 30px;
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ICON */
+.contactIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #38bdf8, #22c55e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: white;
+}
+
+/* TEXT */
+.contactText h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  color: #020617;
+}
+
+.contactText p {
+  margin: 12px 0;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(2, 6, 23, 0.78);
+  max-width: 420px;
+}
+
+/* ICON LINKS */
+.contactLinks {
+  display: flex;
+  gap: 18px;
+  margin-top: 14px;
+  margin-left: 80px;
+}
+
+.contactLinks a {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #d1fae5, #bae6fd);
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #047857;
+  font-size: 22px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.contactLinks a:hover {
+  background: #22c55e;
+  color: linear-gradient(135deg, #d1fae5, #bae6fd);;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(34, 197, 94, 0.35);
+}
+
+.contactText small {
+  margin-top: 16px;
+  font-size: 13px;
+  color: rgba(2, 6, 23, 0.6);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .contactSlideTitle {
+    font-size: 32px;
+  }
+
+  .contactSlide {
+    padding: 28px 22px;
+  }
+}
