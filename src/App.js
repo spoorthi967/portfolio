@@ -12,7 +12,7 @@ import Home from "./pages/Home";
 import Aboutme from "./pages/Aboutme";
 import Education from "./pages/Education";
 import Experience from "./pages/Experience";
-import Skills from "./pages/skills"; // ⚠ your file is lowercase: skills.jsx
+import Skills from "./pages/skills";
 import Contactus from "./pages/contactus";
 
 // Assets
@@ -49,12 +49,35 @@ const App = () => {
         <div className="nav-inner">
           <Link to="/" className="brand" onClick={handleNavClick}>
             <img src={logo} alt="Logo" className="brand-logo" />
-            
           </Link>
 
+          {/* ✅ DESKTOP NAV (normal links) */}
+          <nav className="nav-links nav-desktop">
+            <NavLink to="/" onClick={playClickSound} className="nav-item">
+              Home
+            </NavLink>
+            <NavLink to="/about" onClick={playClickSound} className="nav-item">
+              About
+            </NavLink>
+            <NavLink to="/education" onClick={playClickSound} className="nav-item">
+              Education
+            </NavLink>
+            <NavLink to="/experience" onClick={playClickSound} className="nav-item">
+              Experience
+            </NavLink>
+            <NavLink to="/skills" onClick={playClickSound} className="nav-item">
+              Skills
+            </NavLink>
+            <NavLink to="/contact" onClick={playClickSound} className="nav-item nav-cta">
+              Contact
+            </NavLink>
+          </nav>
+
+          {/* ✅ MOBILE HAMBURGER (visible only on mobile via CSS) */}
           <button
             className="nav-toggle"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
             onClick={() => {
               setMenuOpen((v) => !v);
               playClickSound();
@@ -62,28 +85,26 @@ const App = () => {
           >
             <i className={menuOpen ? "bi bi-x-lg" : "bi bi-list"} />
           </button>
-
-          <nav className={`nav-links ${menuOpen ? "show" : ""}`}>
-            <NavLink to="/" onClick={handleNavClick} className="nav-item">
-              Home
-            </NavLink>
-            <NavLink to="/about" onClick={handleNavClick} className="nav-item">
-              About
-            </NavLink>
-            <NavLink to="/education" onClick={handleNavClick} className="nav-item">
-              Education
-            </NavLink>
-            <NavLink to="/experience" onClick={handleNavClick} className="nav-item">
-              Experience
-            </NavLink>
-            <NavLink to="/skills" onClick={handleNavClick} className="nav-item">
-              Skills
-            </NavLink>
-            <NavLink to="/contact" onClick={handleNavClick} className="nav-item nav-cta">
-              Contact
-            </NavLink>
-          </nav>
         </div>
+
+        {/* ✅ MOBILE MENU (ONLY these links) */}
+        <nav className={`nav-mobile ${menuOpen ? "show" : ""}`}>
+          <NavLink to="/about" onClick={handleNavClick} className="nav-item">
+            About Me
+          </NavLink>
+          <NavLink to="/education" onClick={handleNavClick} className="nav-item">
+            Education
+          </NavLink>
+          <NavLink to="/experience" onClick={handleNavClick} className="nav-item">
+            Experience
+          </NavLink>
+          <NavLink to="/skills" onClick={handleNavClick} className="nav-item">
+            Skills
+          </NavLink>
+          <NavLink to="/contact" onClick={handleNavClick} className="nav-item nav-cta">
+            Contact Us
+          </NavLink>
+        </nav>
       </header>
 
       {/* ===== PAGE AREA ===== */}
@@ -126,11 +147,7 @@ const App = () => {
               <i className="bi bi-github" />
             </a>
 
-            <a
-              href="mailto:spoorthi6918@gmail.com"
-              onClick={playClickSound}
-              aria-label="Email"
-            >
+            <a href="mailto:spoorthi6918@gmail.com" onClick={playClickSound} aria-label="Email">
               <i className="bi bi-envelope-at-fill" />
             </a>
           </div>

@@ -4,72 +4,73 @@ import "./skills.css";
 const slides = [
   {
     title: "Marketing Automation",
-   
+    icon: "⚙",
     items: [
-      "Adobe Marketo / Marketo Engage",
-      "Smart Campaigns & Smart Lists",
-      "Engagement Programs & Nurture Streams",
-      "Lead Scoring & Lifecycle Management",
-      "Tokens, Snippets & Dynamic Content",
-      "A/B & Multivariate Testing",
+      { icon: "▣", text: "Adobe Marketo / Marketo Engage" },
+      { icon: "⧉", text: "Smart Campaigns & Smart Lists" },
+      { icon: "⇄", text: "Engagement Programs & Nurture Streams" },
+      { icon: "◎", text: "Lead Scoring & Lifecycle Management" },
+      { icon: "≡", text: "Tokens, Snippets & Dynamic Content" },
+      { icon: "Δ", text: "A/B & Multivariate Testing" },
     ],
   },
   {
-    title: "CRM & Integrations",
+    title: "CRM & Integrations", 
+    icon: "🔗",
     
     items: [
-      "Salesforce CRM",
-      "Microsoft Dynamics 365",
-      "Zoho CRM",
-      "REST & SOAP APIs",
-      "Webhooks & Custom API Connectors",
-      "ZoomInfo, LinkedIn Ads, ON24, Zoom",
+      { icon: "⎈", text: "Salesforce CRM" },
+      { icon: "▦", text: "Microsoft Dynamics 365" },
+      { icon: "⌁", text: "Zoho CRM" },
+      { icon: "⌂", text: "REST & SOAP APIs" },
+      { icon: "⇢", text: "Webhooks & Custom API Connectors" },
+      { icon: "⟲", text: "ZoomInfo, LinkedIn Ads, ON24, Zoom" },
     ],
   },
   {
     title: "Email & Web Development",
-    
+    icon: "✉",
     items: [
-      "HTML5, CSS3, JavaScript",
-      "Velocity Script & AMPscript",
-      "Responsive Email Templates",
-      "Landing Pages & Forms",
-      "Dynamic Content Blocks",
-      "Mobile-First UI/UX Design",
+      { icon: "⌘", text: "HTML5, CSS3, JavaScript" },
+      { icon: "≋", text: "Velocity Script & AMPscript" },
+      { icon: "▭", text: "Responsive Email Templates" },
+      { icon: "▢", text: "Landing Pages & Forms" },
+      { icon: "≡", text: "Dynamic Content Blocks" },
+      { icon: "◻", text: "Mobile-First UI/UX Design" },
     ],
   },
   {
     title: "Data & Analytics",
- 
+    icon: "📈",
     items: [
-      "SQL & Advanced Excel",
-      "Data Cleansing & Deduplication",
-      "Power BI Dashboards",
-      "Marketo Revenue Cycle Explorer (RCE)",
-      "Google Analytics & UTM Tracking",
-      "Campaign Attribution & ROI Analysis",
+      { icon: "∑", text: "SQL & Advanced Excel" },
+      { icon: "⟐", text: "Data Cleansing & Deduplication" },
+      { icon: "▤", text: "Power BI Dashboards" },
+      { icon: "◎", text: "Marketo Revenue Cycle Explorer (RCE)" },
+      { icon: "⟲", text: "Google Analytics & UTM Tracking" },
+      { icon: "⇶", text: "Campaign Attribution & ROI Analysis" },
     ],
   },
   {
     title: "Compliance & Governance",
-   
+    icon: "🛡",
     items: [
-      "GDPR, CAN-SPAM, CASL, CCPA",
-      "Consent & Preference Management",
-      "Double Opt-In Configuration",
-      "Workspace & Partition Setup",
-      "User & Asset Governance",
+      { icon: "⚑", text: "GDPR, CAN-SPAM, CASL, CCPA" },
+      { icon: "✓", text: "Consent & Preference Management" },
+      { icon: "⧗", text: "Double Opt-In Configuration" },
+      { icon: "▣", text: "Workspace & Partition Setup" },
+      { icon: "⌁", text: "User & Asset Governance" },
     ],
   },
   {
     title: "Collaboration & Tools",
-   
+    icon: "🤝",
     items: [
-      "Jira, Confluence, Asana, Trello",
-      "Slack & Microsoft Teams",
-      "GitHub & Bitbucket",
-      "Agile Project Management",
-      "Cross-functional Collaboration",
+      { icon: "☰", text: "Jira, Confluence, Asana, Trello" },
+      { icon: "◉", text: "Slack & Microsoft Teams" },
+      { icon: "⎇", text: "GitHub & Bitbucket" },
+      { icon: "⇄", text: "Agile Project Management" },
+      { icon: "⇵", text: "Cross-functional Collaboration" },
     ],
   },
 ];
@@ -77,52 +78,63 @@ const slides = [
 const Skills = () => {
   const [index, setIndex] = useState(0);
 
-  // Auto slide
+  const next = () => setIndex((p) => (p + 1) % slides.length);
+  const prev = () => setIndex((p) => (p - 1 + slides.length) % slides.length);
+
+  // Auto slide (no dots needed)
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 3800);
+    const timer = setInterval(next, 3800);
     return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className="skillsSlideWrap">
-      <h1 className="skillsSlideTitle">Skills</h1>
+    <section className="skillsSlideWrap">
+      <div className="skillsSliderCanvas">
+        <h2 className="skillsSlideTitle">Skills</h2>
 
-      <div className="skillsSlider">
-        <div
-          className="skillsSlides"
-          style={{ transform: `translateX(-${index * 100}%)` }}
-        >
-          {slides.map((slide, i) => (
-            <div className="skillsSlide" key={i}>
-              <div className="skillsIcon">{slide.icon}</div>
+        <div className="skillsSlider">
+          {/* ARROWS */}
+          <button className="skillsNavBtn left" onClick={prev} aria-label="Previous">
+            ‹
+          </button>
+          <button className="skillsNavBtn right" onClick={next} aria-label="Next">
+            ›
+          </button>
 
-              <div className="skillsText">
-                <h3>{slide.title}</h3>
+          <div
+            className="skillsSlides"
+            style={{ transform: `translateX(-${index * 100}%)` }}
+          >
+            {slides.map((slide, i) => (
+              <div className="skillsSlide" key={i}>
+                <div className="skillsIcon">
+                  <span className="skillsBigIcon">{slide.icon}</span>
+                </div>
 
-                <ul className="skillsList">
-                  {slide.items.map((item, idx) => (
-                    <li key={idx}>{item}</li>
-                  ))}
-                </ul>
+                <div className="skillsText">
+                  <h3>{slide.title}</h3>
+
+                  <div className="skillsPills">
+                    {slide.items.map((it, idx) => (
+                      <div className="skillPill" key={idx}>
+                        <span className="pillIcon">{it.icon}</span>
+                        <span className="pillText">{it.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Optional: small slide count (looks clean) */}
+                <div className="skillsCount">
+                  {i + 1} / {slides.length}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-
-      {/* DOTS */}
-      <div className="skillsDots">
-        {slides.map((_, i) => (
-          <span
-            key={i}
-            className={`dot ${i === index ? "active" : ""}`}
-            onClick={() => setIndex(i)}
-          />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
 
