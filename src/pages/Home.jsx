@@ -1,51 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+
 import profilePic from "../Images/pi.jpeg";
+import bg from "../Images/bg.avif";
 
-const previews = [
-  {
-    title: "About Me",
-    to: "/about",
-    icon: "bi-person-heart",
-    mini: ["B2B Marketing Ops", "Automation + Data", "Pipeline mindset"],
-    desc: "I build clean, scalable automation that improves lead quality and reporting.",
-  },
-  {
-    title: "Skills",
-    to: "/skills",
-    icon: "bi-stars",
-    mini: ["Marketo Engage", "SFDC / Dynamics", "Email + Power BI"],
-    desc: "Smart campaigns, nurture streams, scoring, tokens, integrations, analytics — end to end.",
-  },
-  {
-    title: "Education",
-    to: "/education",
-    icon: "bi-mortarboard",
-    mini: ["Systems + Analytics", "Business strategy", "Hands-on projects"],
-    desc: "Strong foundation in technology + data + strategy to support marketing operations.",
-  },
-  {
-    title: "Experience",
-    to: "/experience",
-    icon: "bi-briefcase",
-    mini: ["QA + Governance", "CRM Sync fixes", "Template systems"],
-    desc: "Standardized QA, improved data quality, fixed sync issues, boosted campaign accuracy.",
-  },
-  {
-    title: "Contact",
-    to: "/contact",
-    icon: "bi-chat-dots",
-    mini: ["Email fast reply", "LinkedIn connect", "Open to roles"],
-    desc: "Let’s connect — happy to share portfolio, case studies, and availability.",
-  },
-];
+/**
+ * REQUIRED:
+ * 1) Bootstrap Icons (public/index.html <head>):
+ * <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+ *
+ * 2) Put brand SVGs in public/brands/
+ * - public/brands/marketo.svg
+ * - public/brands/salesforce.svg
+ */
 
-const Home = () => {
-  const [idx, setIdx] = useState(0);
+export default function Home() {
+  const cards = useMemo(
+    () => [
+      { title: "About Me", to: "/about", icon: "bi-person-circle", desc: "Learn more about my journey." },
+      { title: "Experience", to: "/experience", icon: "bi-briefcase-fill", desc: "My work history & achievements." },
+      { title: "Education", to: "/education", icon: "bi-mortarboard-fill", desc: "My academic background." },
+      { title: "Skills", to: "/skills", icon: "bi-gear-fill", desc: "Tools & technologies I excel in." },
+      { title: "Contact", to: "/contact", icon: "bi-envelope-fill", desc: "Let’s connect and talk." },
+    ],
+    []
+  );
 
-  const next = () => setIdx((p) => (p + 1) % previews.length);
-  const prev = () => setIdx((p) => (p - 1 + previews.length) % previews.length);
+  // Slider pages: 4 cards per page
+  const perPage = 4;
+  const pages = Math.ceil(cards.length / perPage);
+
+  const [page, setPage] = useState(0);
+
+  const next = () => setPage((p) => (p + 1) % pages);
+  const prev = () => setPage((p) => (p - 1 + pages) % pages);
 
   useEffect(() => {
     const t = setInterval(next, 4500);
@@ -54,125 +43,141 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="homeWrap proBG">
-      <div className="homeGrid proContainer">
-        {/* LEFT */}
-        <aside className="leftCard proCard">
-          <div className="leftTop">
-            <div className="leftLine" />
-          </div>
+    <div className="homeWrap" style={{ backgroundImage: `url(${bg})` }}>
+      {/* overlay layers on top of bg image */}
+      <div className="bgOverlay" aria-hidden="true" />
+      <div className="bgWaves" aria-hidden="true" />
+      <div className="bgSparkles" aria-hidden="true" />
 
-          <div className="photoFrame">
-            <img className="photo" src={profilePic} alt="Spoorthi Gopu" />
-          </div>
+      <div className="homeContainer">
+        {/* HERO */}
+        <section className="heroGrid">
+          <div className="heroLeft">
+            <h1 className="heroTitle">Hi, I’m Spoorthi.</h1>
 
-          <div className="chipsRow">
-            <span className="chip"><i className="bi bi-graph-up-arrow"></i> Marketing Ops</span>
-            <span className="chip"><i className="bi bi-diagram-3"></i> CRM + Integrations</span>
-            <span className="chip"><i className="bi bi-envelope-paper"></i> Email + Lifecycle</span>
-          </div>
-
-          <div className="leftName">
-            <div className="name">SPOORTHI GOPU</div>
-            <div className="role">Senior Marketo Specialist</div>
-          </div>
-        </aside>
-
-        {/* RIGHT */}
-        <main className="rightCol">
-          <section className="heroCard proCard">
-            <div className="badge">
-              <span className="dot" />
-              Open to Roles • Marketing Automation / Marketo
+            <div className="heroBullets">
+              <div className="heroBullet">
+                <i className="bi bi-caret-right-fill" />
+                Marketing Automation Specialist.
+              </div>
+            
+              <div className="heroBullet">
+                <i className="bi bi-caret-right-fill" />
+                Marketo | Salesforce Expert.
+              </div>
             </div>
 
-            <h1 className="h1">
-              Gopu <span>Spoorthi</span>
-            </h1>
-
-            <p className="sub">
-              I build scalable B2B automation in <strong>Adobe Marketo Engage</strong>, improve lead
-              quality with scoring + segmentation, and connect campaigns to revenue with reporting
-              (Power BI / RCE).
-            </p>
-
             <div className="heroActions">
-              <a className="iconBtn" href="/resume.pdf" download="Spoorthi_Gopu_Resume.pdf" title="Download Resume">
-                <i className="bi bi-download"></i>
+              <Link className="ctaBtn" to="/projects">
+                View Projects <i className="bi bi-arrow-right" />
+              </Link>
+
+              <a className="miniIconBtn" href="mailto:spoorthi6918@gmail.com" title="Email">
+                <i className="bi bi-envelope-fill" />
               </a>
 
               <a
-                className="iconBtn"
+                className="miniIconBtn"
                 href="https://www.linkedin.com/in/gopu-spoorthi-79185a200/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
                 title="LinkedIn"
               >
-                <i className="bi bi-linkedin"></i>
+                <i className="bi bi-linkedin" />
               </a>
-
-              <a className="iconBtn" href="mailto:spoorthi6918@gmail.com" title="Email">
-                <i className="bi bi-envelope-fill"></i>
-              </a>
-
-              <Link to="/projects" className="primaryBtn">
-                View Projects <i className="bi bi-arrow-right"></i>
-              </Link>
             </div>
-          </section>
+          </div>
 
-          <section className="previewCard proCard">
-            <div className="pvTop">
-              <h3 className="pvTitle">Quick Preview</h3>
-              <div className="pvNav">
-                <button className="pvBtn" onClick={prev} aria-label="Previous">
-                  <i className="bi bi-chevron-left"></i>
-                </button>
-                <button className="pvBtn" onClick={next} aria-label="Next">
-                  <i className="bi bi-chevron-right"></i>
-                </button>
+          {/* PHOTO + ROUND ICONS */}
+          <div className="heroRight">
+            <div className="photoGlass">
+              <div className="photoInner">
+                <img className="heroPhoto" src={profilePic} alt="Spoorthi" />
               </div>
+
+              {/* Round icons around photo */}
+              <span className="bubble bSf" title="Salesforce">
+                <img className="brandIcon" src="/brands/salesforce.svg" alt="Salesforce" />
+              </span>
+
+              <span className="bubble bGit" title="GitHub">
+                <i className="bi bi-github" />
+              </span>
+
+              <span className="bubble bMk" title="Marketo">
+                <img className="brandIcon" src="/brands/marketo.svg" alt="Marketo" />
+              </span>
+
+              <span className="bubble bMail" title="Email">
+                <i className="bi bi-envelope-fill" />
+              </span>
             </div>
+          </div>
+        </section>
 
-            <div className="pvSlider">
-              <div className="pvTrack" style={{ transform: `translateX(-${idx * 100}%)` }}>
-                {previews.map((p, i) => (
-                  <div className="pvSlide" key={i}>
-                    <div className="pvIcon">
-                      <i className={`bi ${p.icon}`}></i>
-                    </div>
+        {/* 4-WIDGET SLIDER */}
+        <section className="widgetsWrap">
+          <button className="navArrow left" onClick={prev} aria-label="Previous">
+            <i className="bi bi-chevron-left" />
+          </button>
+          <button className="navArrow right" onClick={next} aria-label="Next">
+            <i className="bi bi-chevron-right" />
+          </button>
 
-                    <div className="pvContent">
-                      <div className="pvHead">
-                        <h4 className="pvH4">{p.title}</h4>
-                        <span className="pvCount">{i + 1}/{previews.length}</span>
-                      </div>
+          <div className="widgetsFrame">
+            <div className="widgetsTrack" style={{ transform: `translateX(-${page * 100}%)` }}>
+              {Array.from({ length: pages }).map((_, pageIndex) => {
+                const start = pageIndex * perPage;
+                const chunk = cards.slice(start, start + perPage);
 
-                      <p className="pvDesc">{p.desc}</p>
+                // if last page has less than 4, fill blanks for alignment
+                const padded = [...chunk];
+                while (padded.length < perPage) padded.push(null);
 
-                      <div className="pvMini">
-                        {p.mini.map((m, k) => (
-                          <span className="pvPill" key={k}>
-                            <i className="bi bi-check2"></i> {m}
-                          </span>
-                        ))}
-                      </div>
-
-                      <Link to={p.to} className="pvLink">
-                        More <i className="bi bi-arrow-right"></i>
-                      </Link>
-                    </div>
+                return (
+                  <div className="widgetsPage" key={pageIndex}>
+                    {padded.map((card, i) =>
+                      card ? (
+                        <GlassCard key={`${pageIndex}-${i}`} {...card} />
+                      ) : (
+                        <div className="widgetGhost" key={`${pageIndex}-ghost-${i}`} />
+                      )
+                    )}
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
+          </div>
 
-            <div className="pvHint">Use arrows or wait — auto slides ✨</div>
-          </section>
-        </main>
+          <div className="dots">
+            {Array.from({ length: pages }).map((_, i) => (
+              <button
+                key={i}
+                className={`dot ${i === page ? "active" : ""}`}
+                onClick={() => setPage(i)}
+                aria-label={`Go to page ${i + 1}`}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </div>
   );
-};
+}
 
-export default Home;
+function GlassCard({ title, desc, to, icon }) {
+  return (
+    <div className="glassCard widgetCard">
+      <div className="cardIcon">
+        <i className={`bi ${icon}`} />
+      </div>
+
+      <h3 className="cardTitle">{title}</h3>
+      <p className="cardDesc">{desc}</p>
+
+      <Link to={to} className="cardBtn">
+        View more <i className="bi bi-arrow-right" />
+      </Link>
+    </div>
+  );
+}

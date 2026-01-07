@@ -21,56 +21,84 @@ const Education = () => {
 
   const [index, setIndex] = useState(0);
 
-  // Auto slide every 4 seconds
+  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 4000);
-
+    }, 4500);
     return () => clearInterval(interval);
   }, [slides.length]);
 
   return (
-    <div className="eduSlideWrap">
-      <div className="eduSliderCanvas">
-        <h1 className="eduSlideTitle">Education</h1>
+    <div className="eduShell">
+      <div className="eduContainer">
+        {/* HEADER */}
+        <div className="eduTop">
+          <div className="eduKicker">
+            <span className="kDot" />
+            Education • Academics • Foundation
+          </div>
 
-        <div className="eduSlider">
-          <div
-            className="eduSlides"
-            style={{ transform: `translateX(-${index * 100}%)` }}
-          >
-            {slides.map((item, i) => (
-              <div className="eduSlide" key={i}>
-                <div className="eduIcon">
-                  <i className="bi bi-mortarboard-fill"></i>
-                </div>
+          <h1 className="eduTitle">
+            My <span>Education</span>
+          </h1>
 
-                <div className="eduText">
-                  <h3>{item.degree}</h3>
-                  <span>{item.institute}</span>
-                  <small>{item.location}</small>
-                  <p>{item.description}</p>
+          <p className="eduSubtitle">
+            A strong academic foundation that supports my work in marketing automation,
+            analytics, system design, and enterprise technology.
+          </p>
+        </div>
+
+        {/* SLIDER CARD */}
+        <section className="eduCard">
+          <div className="eduSlider">
+            <div
+              className="eduSlides"
+              style={{ transform: `translateX(-${index * 100}%)` }}
+            >
+              {slides.map((item, i) => (
+                <div className="eduSlide" key={i}>
+                  <div className="eduIcon">
+                    <i className="bi bi-mortarboard-fill" />
+                  </div>
+
+                  <div className="eduText">
+                    <h3 className="eduDegree">{item.degree}</h3>
+
+                    <div className="eduMeta">
+                      <span>
+                        <i className="bi bi-building" /> {item.institute}
+                      </span>
+                      <span>
+                        <i className="bi bi-geo-alt-fill" /> {item.location}
+                      </span>
+                    </div>
+
+                    <p className="eduDesc">{item.description}</p>
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+
+          {/* DOTS */}
+          <div className="eduDots">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                className={`dot ${i === index ? "active" : ""}`}
+                onClick={() => setIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Dots */}
-        <div className="eduDots">
-          {slides.map((_, i) => (
-            <span
-              key={i}
-              className={`dot ${i === index ? "active" : ""}`}
-              onClick={() => setIndex(i)}
-            />
-          ))}
-        </div>
+        {/* FOOT NOTE */}
+        
       </div>
     </div>
   );
 };
 
 export default Education;
-

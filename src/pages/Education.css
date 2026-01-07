@@ -1,159 +1,199 @@
-/* ===== EDUCATION (SAME BACKGROUND AS HOME) ===== */
-
-.eduSlideWrap {
-  padding: 22px;
+:root{
+  --text: rgba(255,255,255,0.94);
+  --muted: rgba(255,255,255,0.78);
+  --stroke: rgba(255,255,255,0.26);
+  --glassA: rgba(255,255,255,0.18);
+  --glassB: rgba(255,255,255,0.10);
+  --shadow: 0 22px 70px rgba(0,0,0,0.35);
 }
 
-/* Big canvas like Home */
-.eduSliderCanvas {
-  max-width: 1100px;
+*{ box-sizing: border-box; }
+
+.eduShell{
+  padding: 26px 0 48px;
+}
+
+.eduContainer{
+  width: min(1100px, 92vw);
   margin: 0 auto;
-  background: linear-gradient(135deg, #d1fae5, #bae6fd);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 24px;
-  padding: 26px;
-  position: relative;
-  overflow: hidden;
 }
 
-/* Decorative shapes */
-.eduSliderCanvas::before {
-  content: "";
-  position: absolute;
-  inset: -40px auto auto -50px;
-  width: 240px;
-  height: 240px;
-  background: rgba(56, 189, 248, 0.18);
-  transform: rotate(12deg);
-  border-radius: 36px;
+/* ===== HEADER ===== */
+.eduTop{
+  margin-bottom: 20px;
 }
 
-.eduSliderCanvas::after {
-  content: "";
-  position: absolute;
-  right: -110px;
-  top: -90px;
-  width: 260px;
-  height: 260px;
-  background: rgba(34, 197, 94, 0.14);
-  border-radius: 50%;
-}
-
-/* Title */
-.eduSlideTitle {
-  position: relative;
-  z-index: 1;
-  font-size: 38px;
-  font-weight: 900;
-  color: #0f172a;
-  margin-bottom: 32px;
-  text-align: center;
-}
-
-/* Slider */
-.eduSlider {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 520px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.eduSlides {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-/* Slide card */
-.eduSlide {
-  min-width: 100%;
-  background: linear-gradient(135deg, #d1fae5, #bae6fd);
-  backdrop-filter: blur(16px);
-  border-radius: 26px;
-  padding: 32px 28px;
-  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.18);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
-/* Icon */
-.eduIcon {
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #38bdf8, #22c55e);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  color: linear-gradient(135deg, #d1fae5, #bae6fd);
-}
-
-/* Text */
-.eduText h3 {
-  margin: 0;
-  font-size: 22px;
+.eduKicker{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 8px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.86);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.20);
   font-weight: 800;
-  color: #020617;
+  font-size: 12.5px;
 }
 
-.eduText span {
-  display: block;
-  margin-top: 4px;
+.kDot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.14);
+}
+
+.eduTitle{
+  margin: 12px 0 8px;
+  font-size: clamp(38px, 4vw, 56px);
+  font-weight: 950;
+  text-shadow: 0 14px 34px rgba(0,0,0,0.30);
+}
+
+.eduTitle span{
+  opacity: 0.95;
+}
+
+.eduSubtitle{
+  margin: 0;
+  max-width: 820px;
   font-size: 16px;
-  font-weight: 700;
-  color: #047857;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.82);
 }
 
-.eduText p {
-  margin-top: 10px;
+/* ===== GLASS SLIDER CARD ===== */
+.eduCard{
+  margin-top: 14px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--glassA), var(--glassB));
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  padding: 18px 16px 16px;
+}
+
+.eduSlider{
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.eduSlides{
+  display:flex;
+  transition: transform 520ms cubic-bezier(.22,.8,.2,1);
+  will-change: transform;
+}
+
+.eduSlide{
+  min-width:100%;
+  display:grid;
+  grid-template-columns: 80px 1fr;
+  gap: 18px;
+  align-items:flex-start;
+  padding: 18px;
+}
+
+/* icon */
+.eduIcon{
+  width:64px;
+  height:64px;
+  border-radius:999px;
+  display:grid;
+  place-items:center;
+  background: rgba(0,0,0,0.18);
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+
+.eduIcon i{
+  font-size: 26px;
+  color: rgba(255,255,255,0.92);
+}
+
+/* text */
+.eduText{
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eduDegree{
+  margin:0;
+  font-size: 24px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.96);
+}
+
+.eduMeta{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.80);
+  font-weight: 750;
+}
+
+.eduMeta span{
+  display:flex;
+  align-items:center;
+  gap: 6px;
+}
+
+.eduDesc{
+  margin-top: 6px;
   font-size: 15px;
   line-height: 1.7;
-  color: rgba(2, 6, 23, 0.78);
+  color: rgba(255,255,255,0.84);
 }
 
-.eduText small {
-  margin-top: 6px;
-  font-size: 13px;
-  color: rgba(2, 6, 23, 0.6);
+/* dots */
+.eduDots{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top: 14px;
 }
 
-/* Dots */
-.eduDots {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
+.eduDots .dot{
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  border:0;
+  background: rgba(255,255,255,0.35);
+  cursor:pointer;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.eduDots .dot.active{
+  background: rgba(255,255,255,0.92);
+  transform: scale(1.2);
+}
+
+/* bottom note */
+.eduNote{
+  margin-top: 14px;
+  display:flex;
+  align-items:center;
   gap: 10px;
-  margin-top: 22px;
+  color: rgba(255,255,255,0.82);
+  font-weight: 800;
+  font-size: 13.5px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(14px);
 }
 
-.eduDots .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(2, 6, 23, 0.25);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.eduDots .dot.active {
-  width: 26px;
-  border-radius: 20px;
-  background: #22c55e;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .eduSlideTitle {
-    font-size: 32px;
+/* responsive */
+@media (max-width: 720px){
+  .eduSlide{
+    grid-template-columns: 1fr;
   }
-
-  .eduSlide {
-    padding: 26px 22px;
+  .eduIcon{
+    margin-bottom: 6px;
   }
 }
-
