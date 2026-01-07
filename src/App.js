@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { HashRouter as Router, Routes, Route, Link, NavLink } from "react-router-dom";
+import { Routes, Route, Link, NavLink } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -24,7 +24,7 @@ const App = () => {
 
   const clickAudio = useMemo(() => {
     const audio = new Audio(clickSound);
-    audio.volume = 0;
+    audio.volume = 0; // if you want sound, change to 0.4 etc
     return audio;
   }, []);
 
@@ -43,7 +43,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <>
       {/* ===== NAVBAR ===== */}
       <header className="app-navbar">
         <div className="nav-inner">
@@ -51,7 +51,7 @@ const App = () => {
             <img src={logo} alt="Logo" className="brand-logo" />
           </Link>
 
-          {/* ✅ DESKTOP NAV (normal links) */}
+          {/* DESKTOP NAV */}
           <nav className="nav-links nav-desktop">
             <NavLink to="/" onClick={playClickSound} className="nav-item">
               Home
@@ -73,7 +73,7 @@ const App = () => {
             </NavLink>
           </nav>
 
-          {/* ✅ MOBILE HAMBURGER (visible only on mobile via CSS) */}
+          {/* MOBILE TOGGLE */}
           <button
             className="nav-toggle"
             aria-label="Toggle menu"
@@ -87,7 +87,7 @@ const App = () => {
           </button>
         </div>
 
-        {/* ✅ MOBILE MENU (ONLY these links) */}
+        {/* MOBILE MENU */}
         <nav className={`nav-mobile ${menuOpen ? "show" : ""}`}>
           <NavLink to="/about" onClick={handleNavClick} className="nav-item">
             About Me
@@ -153,7 +153,7 @@ const App = () => {
           </div>
         </div>
       </footer>
-    </Router>
+    </>
   );
 };
 
