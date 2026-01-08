@@ -18,12 +18,9 @@
   color:var(--text);
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
 
-  /* background image from Home.jsx inline style */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* fallback */
   background-color:#071022;
 }
 
@@ -35,7 +32,7 @@
   padding:44px 0 56px;
 }
 
-/* ===== Overlays on top of bg image (this makes it look like reference) ===== */
+/* ===== Overlays ===== */
 .bgOverlay{
   position:absolute;
   inset:0;
@@ -67,7 +64,6 @@
   100%{ transform: translate3d(0,0,0); }
 }
 
-/* Sparkles (visible) */
 .bgSparkles{
   position:absolute;
   inset:0;
@@ -220,10 +216,13 @@
 .bMk   { top: 92px; right: 18px; animation-delay: 0.25s; }
 .bMail { bottom: 14px; left: 24px; animation-delay: 0.7s; color:#fff; }
 
-/* ===== 4-WIDGET SLIDER ===== */
+/* ===================================================================== */
+/* ✅ WIDGET SLIDER UNDER VIEW PROJECTS                                   */
+/* ===================================================================== */
+
 .widgetsWrap{
   position:relative;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .widgetsFrame{
@@ -238,15 +237,20 @@
   will-change: transform;
 }
 
+/* base */
 .widgetsPage{
   min-width:100%;
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 12px;
   padding: 10px;
 }
 
-/* blanks for last page alignment */
+/* responsive column classes from JSX */
+.widgetsCols-4{ grid-template-columns: repeat(4, 1fr); }
+.widgetsCols-2{ grid-template-columns: repeat(2, 1fr); }
+.widgetsCols-1{ grid-template-columns: 1fr; }
+
+/* ghost */
 .widgetGhost{
   height: 100%;
   border-radius: 22px;
@@ -272,12 +276,10 @@
   transition: transform .18s ease, background .18s ease;
   z-index: 10;
 }
-
 .navArrow:hover{
   transform: translateY(-50%) scale(1.06);
   background: rgba(255,255,255,0.20);
 }
-
 .navArrow.left{ left: -10px; }
 .navArrow.right{ right: -10px; }
 
@@ -288,7 +290,6 @@
   gap:10px;
   margin-top: 10px;
 }
-
 .dot{
   width:9px;
   height:9px;
@@ -298,17 +299,16 @@
   cursor:pointer;
   transition: transform .18s ease, background .18s ease;
 }
-
 .dot.active{
   background: rgba(255,255,255,0.92);
   transform: scale(1.18);
 }
 
-/* ===== widget card ===== */
+/* card */
 .glassCard{
   position:relative;
-  padding: 22px 18px;
-  min-height: 180px;
+  padding: 18px 14px;
+  min-height: 170px;
   text-align:center;
   border-radius: 22px;
   background: linear-gradient(135deg, var(--glassA), var(--glassB));
@@ -317,6 +317,7 @@
   box-shadow: var(--shadow);
   overflow:hidden;
   transition: transform .18s ease, box-shadow .18s ease;
+  margin: 0;
 }
 
 .glassCard:hover{
@@ -325,29 +326,29 @@
 }
 
 .cardIcon{
-  width:56px;
-  height:56px;
+  width:52px;
+  height:52px;
   border-radius:999px;
   display:grid;
   place-items:center;
   background: rgba(0,0,0,0.18);
   border: 1px solid rgba(255,255,255,0.28);
   box-shadow: 0 16px 34px rgba(0,0,0,0.22);
-  margin: 0 auto 12px;
+  margin: 0 auto 10px;
 }
 
-.cardIcon i{ font-size: 22px; color:#fff; }
+.cardIcon i{ font-size: 20px; color:#fff; }
 
 .cardTitle{
   margin: 2px 0 8px;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 900;
   text-shadow: 0 14px 30px rgba(0,0,0,0.26);
 }
 
 .cardDesc{
   margin: 0 0 14px;
-  font-size: 14.5px;
+  font-size: 13px;
   color: rgba(255,255,255,0.80);
 }
 
@@ -355,7 +356,7 @@
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding: 10px 14px;
+  padding: 9px 12px;
   border-radius: 999px;
   text-decoration:none;
   color: rgba(255,255,255,0.92);
@@ -363,6 +364,7 @@
   border: 1px solid rgba(255,255,255,0.28);
   backdrop-filter: blur(14px);
   transition: transform .18s ease, background .18s ease;
+  font-size: 12.5px;
 }
 
 .cardBtn:hover{
@@ -371,10 +373,6 @@
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 1050px){
-  .widgetsPage{ grid-template-columns: repeat(2, 1fr); }
-}
-
 @media (max-width: 980px){
   .heroGrid{ grid-template-columns: 1fr; }
   .heroPhoto{ height: 240px; }
@@ -385,6 +383,14 @@
 @media (max-width: 520px){
   .homeContainer{ padding: 26px 0 42px; }
   .heroBullet{ font-size: 16px; }
-  .widgetsPage{ grid-template-columns: 1fr; }
+
   .navArrow{ width:44px; height:44px; }
+
+  .glassCard{
+    min-height: 150px;
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+  .cardTitle{ font-size: 20px; }
+  .cardDesc{ font-size: 12.5px; }
 }
