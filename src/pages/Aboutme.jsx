@@ -1,6 +1,5 @@
 import React from "react";
 import "./Aboutme.css";
-import aboutImg from "../Images/a.png"
 
 const Aboutme = () => {
   return (
@@ -23,9 +22,9 @@ const Aboutme = () => {
           </p>
         </div>
 
-        {/* MAIN GLASS CARD */}
-        <section className="aboutCard aboutGrid">
-          {/* LEFT: CONTENT */}
+        {/* MAIN CARD */}
+        <section className="aboutCard aboutGrid aboutSingle">
+          {/* CONTENT */}
           <div className="aboutLeft">
             <h2 className="sectionTitle">
               <i className="bi bi-person-heart" /> My Story
@@ -41,8 +40,7 @@ const Aboutme = () => {
               <p>
                 My core strengths include <strong>lead lifecycle management</strong>, scoring models, segmentation,
                 nurture programs, and dynamic content. I have extensive experience integrating Marketo with{" "}
-                <strong>Salesforce</strong> to ensure clean data flow and
-                accurate attribution.
+                <strong>Salesforce</strong> to ensure clean data flow and accurate attribution.
               </p>
 
               <p>
@@ -68,17 +66,14 @@ const Aboutme = () => {
                   <i className="bi bi-check2-circle" />
                   <span>End-to-end Marketo program builds (templates, tokens, scalable workflows)</span>
                 </div>
-
                 <div className="hItem">
                   <i className="bi bi-check2-circle" />
                   <span>Lead scoring + segmentation to improve MQL quality and routing accuracy</span>
                 </div>
-
                 <div className="hItem">
                   <i className="bi bi-check2-circle" />
                   <span>CRM sync debugging + field mapping (SFDC / Dynamics) and data QA standards</span>
                 </div>
-
                 <div className="hItem">
                   <i className="bi bi-check2-circle" />
                   <span>Reporting dashboards (Power BI / RCE) for pipeline impact and attribution</span>
@@ -86,7 +81,7 @@ const Aboutme = () => {
               </div>
             </div>
 
-            {/* TOOL PILLS */}
+            {/* TOOLS */}
             <div className="toolRow">
               <span className="toolPill"><i className="bi bi-lightning-charge-fill" /> Marketo Engage</span>
               <span className="toolPill"><i className="bi bi-cloud-check" /> Salesforce</span>
@@ -95,17 +90,13 @@ const Aboutme = () => {
               <span className="toolPill"><i className="bi bi-shield-lock-fill" /> Compliance</span>
             </div>
 
-            {/* CTA BUTTONS */}
+            {/* ACTIONS */}
             <div className="aboutActions">
               <a className="aboutBtn primary" href="/resume.pdf" download>
                 Download Resume <i className="bi bi-download" />
               </a>
 
-              <a
-                className="aboutBtn ghost"
-                href="mailto:spoorthi6918@gmail.com"
-                title="Email"
-              >
+              <a className="aboutBtn ghost" href="mailto:spoorthi6918@gmail.com">
                 Email Me <i className="bi bi-envelope-fill" />
               </a>
 
@@ -114,34 +105,14 @@ const Aboutme = () => {
                 href="https://www.linkedin.com/in/gopu-spoorthi-79185a200/"
                 target="_blank"
                 rel="noreferrer"
-                title="LinkedIn"
               >
                 LinkedIn <i className="bi bi-linkedin" />
               </a>
             </div>
           </div>
 
-          {/* RIGHT: IMAGE */}
+          {/* QUICK FACTS (RIGHT COLUMN CONTENT ONLY) */}
           <div className="aboutRight">
-            <div className="imgGlass">
-              <img src={aboutImg} alt="About Spoorthi Gopu" className="aboutImg" />
-
-              {/* small floating bubbles */}
-              <span className="abBubble ab1" title="Automation">
-                <i className="bi bi-gear-fill" />
-              </span>
-              <span className="abBubble ab2" title="Email">
-                <i className="bi bi-envelope-paper-fill" />
-              </span>
-              <span className="abBubble ab3" title="Analytics">
-                <i className="bi bi-graph-up-arrow" />
-              </span>
-              <span className="abBubble ab4" title="Compliance">
-                <i className="bi bi-shield-lock-fill" />
-              </span>
-            </div>
-
-            {/* QUICK FACTS */}
             <div className="factsCard">
               <div className="factsTitle">
                 <i className="bi bi-lightbulb-fill" /> Quick Facts
@@ -168,9 +139,6 @@ const Aboutme = () => {
             </div>
           </div>
         </section>
-
-        {/* BOTTOM NOTE */}
-       
       </div>
     </div>
   );

@@ -1,126 +1,147 @@
-
+/* ===============================
+   GLOBAL THEME VARIABLES
+================================ */
 :root{
   --text: rgba(255,255,255,0.94);
-  --muted: rgba(255,255,255,0.78);
-  --stroke: rgba(255,255,255,0.26);
-  --glassA: rgba(255,255,255,0.18);
-  --glassB: rgba(255,255,255,0.10);
-  --shadow: 0 22px 70px rgba(0,0,0,0.35);
+  --muted: rgba(255,255,255,0.70);
+  --stroke: rgba(255,255,255,0.10);
+
+  /* DARK glass */
+  --glassA: rgba(255,255,255,0.035);
+  --glassB: rgba(255,255,255,0.015);
+
+  --shadow: 0 40px 120px rgba(0,0,0,0.85);
+  --gold: #d4af37;
 }
 
 *{ box-sizing: border-box; }
 
-/* ===== PAGE WRAP ===== */
+/* ===============================
+   PAGE WRAP – PURE BLACK
+================================ */
 .expSlideWrap{
-  padding: 26px 0 48px;
+  background: #000000;
+  min-height: 100vh;
+  padding: 32px 0 56px;
   display: flex;
   justify-content: center;
   position: relative;
   overflow: hidden;
 }
 
-/* ===== SPARKLES ===== */
+/* ===============================
+   SUBTLE GOLD SPARKLES (MINIMAL)
+================================ */
 .expSlideWrap::before{
   content:"";
   position:absolute;
-  inset:-40px;
-  pointer-events:none;
+  inset:-60px;
   z-index:0;
+  pointer-events:none;
   background:
-    radial-gradient(circle at 12% 30%, rgba(255,255,255,0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 28% 65%, rgba(255,255,255,0.14) 0 2px, transparent 3px),
-    radial-gradient(circle at 42% 40%, rgba(255,255,255,0.10) 0 1px, transparent 3px),
-    radial-gradient(circle at 55% 70%, rgba(255,255,255,0.16) 0 2px, transparent 3px),
-    radial-gradient(circle at 68% 30%, rgba(255,255,255,0.10) 0 1px, transparent 3px),
-    radial-gradient(circle at 84% 58%, rgba(255,255,255,0.18) 0 2px, transparent 3px);
-  opacity: .65;
-  animation: expSparkle 10s linear infinite;
+    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.10) 0 2px, transparent 4px),
+    radial-gradient(circle at 55% 65%, rgba(255,255,255,0.04) 0 1px, transparent 4px),
+    radial-gradient(circle at 78% 25%, rgba(212,175,55,0.08) 0 2px, transparent 4px);
+  opacity: 0.30;
+  animation: expSparkle 16s linear infinite;
 }
 
 @keyframes expSparkle{
   0%{ transform: translateY(0); }
-  50%{ transform: translateY(-16px); }
+  50%{ transform: translateY(-14px); }
   100%{ transform: translateY(0); }
 }
 
-/* ===== GLOW WAVES ===== */
+/* ===============================
+   SOFT GOLD GLOW (VERY LIGHT)
+================================ */
 .expSlideWrap::after{
   content:"";
   position:absolute;
-  inset:-80px;
-  pointer-events:none;
+  inset:-120px;
   z-index:0;
+  pointer-events:none;
   background:
-    radial-gradient(720px 260px at 30% 55%, rgba(0,255,200,0.18), transparent 60%),
-    radial-gradient(620px 260px at 70% 45%, rgba(120,180,255,0.18), transparent 62%),
-    radial-gradient(520px 200px at 55% 75%, rgba(180,120,255,0.14), transparent 65%);
-  filter: blur(12px);
-  opacity: .9;
-  animation: expWave 9s ease-in-out infinite;
+    radial-gradient(420px 180px at 50% 55%, rgba(212,175,55,0.07), transparent 70%);
+  filter: blur(22px);
+  opacity: 0.30;
+  animation: expWave 14s ease-in-out infinite;
 }
 
 @keyframes expWave{
   0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-14px); }
+  50%{ transform: translateY(-10px); }
 }
 
-/* ===== MAIN CANVAS ===== */
+/* ===============================
+   MAIN CANVAS
+================================ */
 .expSliderCanvas{
   width: min(1100px, 92vw);
   position: relative;
   z-index: 2;
 }
 
-/* ===== TITLE ===== */
+/* ===============================
+   TITLE & INTRO
+================================ */
 .expSlideTitle{
-  margin: 0 0 10px;
+  margin-bottom: 10px;
   font-size: clamp(38px, 4vw, 56px);
-  font-weight: 950;
-  color: rgba(255,255,255,0.96);
-  text-shadow: 0 14px 34px rgba(0,0,0,0.30);
+  font-weight: 900;
+  color: var(--text);
+  text-shadow: 0 18px 40px rgba(0,0,0,0.7);
 }
 
-/* ===== INTRO / MY STORY ===== */
 .expIntro{
-  margin: 6px 0 18px;
   max-width: 900px;
+  margin-bottom: 18px;
   font-size: 16px;
   line-height: 1.7;
-  color: rgba(255,255,255,0.82);
+  color: var(--muted);
 }
 
-/* ===== GLASS SLIDER ===== */
+/* ===============================
+   GLASS SLIDER CONTAINER
+================================ */
 .expSlider{
-  margin-top: 14px;
-  border-radius: 26px;
+  margin-top: 16px;
+  border-radius: 28px;
   background: linear-gradient(135deg, var(--glassA), var(--glassB));
   border: 1px solid var(--stroke);
   backdrop-filter: blur(18px);
   box-shadow: var(--shadow);
-  padding: 18px 16px 16px;
+  padding: 20px 18px;
   overflow: hidden;
 }
 
-/* Track */
+/* ===============================
+   SLIDES TRACK
+================================ */
 .expSlides{
   display: flex;
   transition: transform 520ms cubic-bezier(.22,.8,.2,1);
 }
 
-/* ===== SLIDE ===== */
+/* ===============================
+   INDIVIDUAL SLIDE
+================================ */
 .expSlide{
   min-width: 100%;
-  padding: 18px;
+  padding: 22px;
   display: grid;
   grid-template-columns: 86px 1fr;
-  gap: 20px;
-  align-items: flex-start;
-  border-radius: 20px;
-  background: rgba(0,0,0,0.12);
-  border: 1px solid rgba(255,255,255,0.14);
+  gap: 22px;
+  border-radius: 22px;
+
+  /* DARK card */
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Icon */
+/* ===============================
+   ICON
+================================ */
 .expIcon{
   width: 72px;
   height: 72px;
@@ -128,92 +149,99 @@
   display: grid;
   place-items: center;
   font-size: 26px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.28);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
-  color: rgba(255,255,255,0.94);
+  color: var(--gold);
+
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(212,175,55,0.35);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
 }
 
-/* Text block */
+/* ===============================
+   TEXT
+================================ */
 .expText h3{
   margin: 0;
   font-size: 26px;
   font-weight: 900;
-  color: rgba(255,255,255,0.96);
+  color: var(--text);
 }
 
 .expText span{
-  display:block;
-  margin-top: 2px;
+  margin-top: 4px;
+  display: block;
   font-size: 14.5px;
   font-weight: 800;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.78);
 }
 
 .expText small{
-  display:block;
+  display: block;
   font-size: 13px;
   font-weight: 700;
-  color: rgba(255,255,255,0.68);
+  color: rgba(255,255,255,0.55);
 }
 
-/* Story paragraph */
+/* ===============================
+   CONTENT
+================================ */
 .expStory{
-  margin: 10px 0 10px;
+  margin: 10px 0;
   font-size: 14.8px;
   line-height: 1.65;
-  font-weight: 650;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.78);
 }
 
-/* Description */
 .expDesc{
   margin: 6px 0 10px;
   font-size: 15px;
   line-height: 1.7;
-  color: rgba(255,255,255,0.86);
+  color: rgba(255,255,255,0.82);
 }
 
-/* Bullet points */
 .expPoints{
-  margin: 8px 0 0;
   padding-left: 18px;
+  margin-top: 6px;
 }
 
 .expPoints li{
   margin-bottom: 6px;
   font-size: 14.5px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.75);
 }
 
-/* ===== DOTS ===== */
+/* ===============================
+   DOT NAVIGATION
+================================ */
 .expDots{
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .expDots .dot{
   width: 9px;
   height: 9px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.25);
   cursor: pointer;
-  transition: transform .18s ease, background .18s ease;
+  transition: transform .2s ease, background .2s ease;
 }
 
 .expDots .dot.active{
-  background: rgba(255,255,255,0.92);
-  transform: scale(1.2);
+  background: var(--gold);
+  transform: scale(1.25);
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 720px){
   .expSlide{
     grid-template-columns: 1fr;
   }
+
   .expIcon{
     margin-bottom: 6px;
   }

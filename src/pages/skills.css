@@ -1,22 +1,26 @@
-
 :root{
   --text: rgba(255,255,255,0.94);
   --muted: rgba(255,255,255,0.78);
-  --stroke: rgba(255,255,255,0.26);
-  --glassA: rgba(255,255,255,0.18);
-  --glassB: rgba(255,255,255,0.10);
-  --shadow: 0 22px 70px rgba(0,0,0,0.35);
+  --stroke: rgba(255,255,255,0.20);
+  --glassA: rgba(255,255,255,0.10);
+  --glassB: rgba(255,255,255,0.06);
+  --shadow: 0 22px 70px rgba(0,0,0,0.55);
+
+  /* gold accent */
+  --goldA: rgba(212,175,55,0.85);
+  --goldB: rgba(184,138,0,0.85);
 }
 
 *{ box-sizing: border-box; }
 
-/* ===== PAGE WRAP (Education pattern) ===== */
+/* ===== PAGE WRAP (PURE BLACK) ===== */
 .skillsSlideWrap{
   padding: 26px 0 48px;
   display: flex;
   justify-content: center;
   position: relative;
   overflow: hidden;
+  background: #000000; /* ✅ FULL BLACK */
 }
 
 /* IMPORTANT: Canvas stays above float layers */
@@ -26,18 +30,17 @@
   z-index: 2;
 }
 
-/* ===== TITLE (Education scale) ===== */
+/* ===== TITLE ===== */
 .skillsSlideTitle{
   margin: 0 0 18px;
   font-size: clamp(38px, 4vw, 56px);
   font-weight: 950;
   color: rgba(255,255,255,0.96);
-  text-shadow: 0 14px 34px rgba(0,0,0,0.30);
+  text-shadow: 0 14px 34px rgba(0,0,0,0.45);
 }
 
 /* =========================================================
-   HOME-LIKE FLOATING LAYERS (SPARKLES + ORBS)
-   Add these behind the card for floating circle effect
+   BACKGROUND SPARKLES (BLACK + WHITE + GOLD ONLY)
 ========================================================= */
 
 /* Sparkles layer */
@@ -48,25 +51,25 @@
   pointer-events:none;
   z-index: 0;
   background:
-    radial-gradient(circle at 12% 30%, rgba(255,255,255,0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 28% 65%, rgba(255,255,255,0.14) 0 2px, transparent 3px),
-    radial-gradient(circle at 42% 40%, rgba(255,255,255,0.10) 0 1px, transparent 3px),
-    radial-gradient(circle at 55% 70%, rgba(255,255,255,0.16) 0 2px, transparent 3px),
-    radial-gradient(circle at 68% 30%, rgba(255,255,255,0.10) 0 1px, transparent 3px),
-    radial-gradient(circle at 84% 58%, rgba(255,255,255,0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 92% 26%, rgba(255,255,255,0.14) 0 2px, transparent 3px);
-  opacity: 0.65;
+    radial-gradient(circle at 12% 30%, rgba(255,255,255,0.14) 0 2px, transparent 3px),
+    radial-gradient(circle at 28% 65%, rgba(255,255,255,0.10) 0 2px, transparent 3px),
+    radial-gradient(circle at 42% 40%, rgba(255,255,255,0.08) 0 1px, transparent 3px),
+    radial-gradient(circle at 55% 70%, rgba(212,175,55,0.14) 0 2px, transparent 3px),
+    radial-gradient(circle at 68% 30%, rgba(255,255,255,0.08) 0 1px, transparent 3px),
+    radial-gradient(circle at 84% 58%, rgba(212,175,55,0.12) 0 2px, transparent 3px),
+    radial-gradient(circle at 92% 26%, rgba(255,255,255,0.10) 0 2px, transparent 3px);
+  opacity: 0.55;
   filter: blur(0.2px);
-  animation: skillSparkles 10s linear infinite;
+  animation: skillSparkles 12s linear infinite;
 }
 
 @keyframes skillSparkles{
   0%{ transform: translateY(0) translateX(0); }
-  50%{ transform: translateY(-18px) translateX(10px); }
+  50%{ transform: translateY(-14px) translateX(8px); }
   100%{ transform: translateY(0) translateX(0); }
 }
 
-/* Glow wave layer */
+/* ✅ REPLACED: glow wave layer (no green/blue/purple) */
 .skillsSlideWrap::after{
   content:"";
   position:absolute;
@@ -74,23 +77,19 @@
   pointer-events:none;
   z-index: 0;
   background:
-    radial-gradient(700px 240px at 30% 55%, rgba(0,255,200,0.16), transparent 60%),
-    radial-gradient(620px 240px at 70% 45%, rgba(120,180,255,0.16), transparent 62%),
-    radial-gradient(520px 200px at 55% 75%, rgba(180,120,255,0.12), transparent 65%);
-  filter: blur(10px);
-  opacity: 0.85;
-  animation: waveFloat 9s ease-in-out infinite;
+    radial-gradient(700px 240px at 30% 55%, rgba(212,175,55,0.10), transparent 60%),
+    radial-gradient(620px 240px at 70% 45%, rgba(255,255,255,0.05), transparent 62%);
+  filter: blur(12px);
+  opacity: 0.55;
+  animation: waveFloat 10s ease-in-out infinite;
 }
 
 @keyframes waveFloat{
   0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-14px); }
+  50%{ transform: translateY(-10px); }
 }
 
-/* ===== FLOATING ORBS (ROUND CIRCLES EFFECT) =====
-   If you added <div className="skillsFloatLayer" /> in Skills.jsx,
-   these will show as floating circles behind the card.
-*/
+/* ===== FLOATING ORBS (GOLD/WHITE ONLY) ===== */
 .skillsFloatLayer{
   position: absolute;
   inset: 0;
@@ -99,58 +98,57 @@
   overflow: hidden;
 }
 
-/* Two main orbs using pseudo elements */
 .skillsFloatLayer::before,
 .skillsFloatLayer::after{
   content:"";
   position:absolute;
   border-radius:50%;
-  filter: blur(22px);
-  opacity: 0.55;
+  filter: blur(24px);
+  opacity: 0.35;
   animation: floatSkill 12s ease-in-out infinite;
 }
 
-/* Big teal orb */
+/* Gold orb */
 .skillsFloatLayer::before{
-  width: 280px;
-  height: 280px;
+  width: 300px;
+  height: 300px;
   background: radial-gradient(circle at 30% 30%,
-    rgba(0,255,200,0.65),
-    rgba(0,255,200,0.05) 70%
+    rgba(212,175,55,0.55),
+    rgba(212,175,55,0.04) 70%
   );
   top: 18%;
   left: 8%;
 }
 
-/* Blue orb */
+/* Soft white orb */
 .skillsFloatLayer::after{
-  width: 220px;
-  height: 220px;
+  width: 240px;
+  height: 240px;
   background: radial-gradient(circle at 30% 30%,
-    rgba(120,180,255,0.65),
-    rgba(120,180,255,0.05) 70%
+    rgba(255,255,255,0.20),
+    rgba(255,255,255,0.02) 70%
   );
   bottom: 14%;
   right: 10%;
   animation-delay: 4s;
 }
 
-/* Optional extra orbs if you add spans with class="orb" */
+/* Optional extra orbs */
 .skillsFloatLayer .orb{
   position:absolute;
   border-radius:50%;
   filter: blur(18px);
-  opacity:0.45;
+  opacity:0.25;
   animation: floatSkill 14s ease-in-out infinite;
 }
 
 @keyframes floatSkill{
   0%{ transform: translateY(0) translateX(0); }
-  50%{ transform: translateY(-28px) translateX(18px); }
+  50%{ transform: translateY(-24px) translateX(14px); }
   100%{ transform: translateY(0) translateX(0); }
 }
 
-/* ===== MAIN GLASS CARD (Education-like) ===== */
+/* ===== MAIN GLASS CARD ===== */
 .skillsSlider{
   position: relative;
   margin-top: 14px;
@@ -170,17 +168,17 @@
   will-change: transform;
 }
 
-/* Slide panel inside card */
+/* Slide */
 .skillsSlide{
   min-width: 100%;
   padding: 18px;
   position: relative;
   border-radius: 20px;
-  background: rgba(0,0,0,0.12);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
-/* Big icon bubble */
+/* Icon bubble */
 .skillsIcon{
   display: flex;
   justify-content: flex-start;
@@ -196,10 +194,10 @@
   display: grid;
   place-items: center;
   font-size: 26px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.28);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
-  color: rgba(255,255,255,0.92);
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.35);
+  color: rgba(212,175,55,0.95); /* ✅ gold icon */
 }
 
 /* Title inside slide */
@@ -224,8 +222,8 @@
   gap: 10px;
   padding: 10px 12px;
   border-radius: 16px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
   backdrop-filter: blur(14px);
 }
 
@@ -236,9 +234,9 @@
   display: grid;
   place-items: center;
   font-weight: 900;
-  color: rgba(255,255,255,0.92);
-  background: rgba(0,0,0,0.16);
-  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(212,175,55,0.95); /* ✅ gold */
+  background: rgba(0,0,0,0.28);
+  border: 1px solid rgba(255,255,255,0.14);
 }
 
 .pillText{
@@ -258,8 +256,8 @@
   color: rgba(255,255,255,0.74);
   padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
 }
 
 /* ===== ARROWS ===== */
@@ -270,15 +268,15 @@
   width: 52px;
   height: 52px;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.30);
-  background: rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.08);
   backdrop-filter: blur(16px);
   color: rgba(255,255,255,0.92);
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-  transition: transform .18s ease, background .18s ease;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
   z-index: 10;
   font-size: 28px;
   line-height: 1;
@@ -286,7 +284,8 @@
 
 .skillsNavBtn:hover{
   transform: translateY(-50%) scale(1.06);
-  background: rgba(255,255,255,0.20);
+  background: rgba(212,175,55,0.12);
+  border-color: rgba(212,175,55,0.35);
 }
 
 .skillsNavBtn.left{ left: 12px; }
@@ -305,13 +304,13 @@
   height:9px;
   border-radius:999px;
   border:0;
-  background: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.30);
   cursor:pointer;
   transition: transform .18s ease, background .18s ease;
 }
 
 .skillsDots .dot.active{
-  background: rgba(255,255,255,0.92);
+  background: rgba(212,175,55,0.95); /* ✅ gold active */
   transform: scale(1.2);
 }
 

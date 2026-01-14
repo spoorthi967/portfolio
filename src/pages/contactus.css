@@ -1,279 +1,276 @@
-:root{
-  --text: rgba(255,255,255,0.94);
-  --muted: rgba(255,255,255,0.78);
-  --stroke: rgba(255,255,255,0.26);
-  --glassA: rgba(255,255,255,0.18);
-  --glassB: rgba(255,255,255,0.10);
-  --shadow: 0 22px 70px rgba(0,0,0,0.35);
-}
+/* =========================
+   CONTACT – PURE BLACK
+   ========================= */
 
-*{ box-sizing: border-box; }
-
-/* ===== PAGE WRAP ===== */
-.contactSlideWrap{
-  padding: 26px 0 48px;
-  display: flex;
-  justify-content: center;
+.contactSlideWrap {
   position: relative;
+  min-height: 100vh;
+  padding: 46px 0 70px;
+  background: #000000;
   overflow: hidden;
+  color: #ffffff;
 }
 
-/* ===== FLOATING ORBS (HOME STYLE) ===== */
-.contactFloatLayer{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:0;
-  overflow:hidden;
+/* =========================
+   FLOATING ORBS
+   ========================= */
+
+.contactFloatLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
 }
 
-.contactFloatLayer .orb{
-  position:absolute;
-  border-radius:50%;
-  filter: blur(22px);
+.contactFloatLayer .orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(24px);
   opacity: 0.55;
-  animation: floatContact 14s ease-in-out infinite;
+  animation: contactFloat 14s ease-in-out infinite;
 }
 
-@keyframes floatContact{
-  0%{ transform: translate(0,0); }
-  50%{ transform: translate(22px,-26px); }
-  100%{ transform: translate(0,0); }
+@keyframes contactFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-28px) translateX(18px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
 }
 
-/* Sparkles */
-.contactSlideWrap::before{
-  content:"";
-  position:absolute;
-  inset:-40px;
-  pointer-events:none;
-  z-index:0;
-  background:
-    radial-gradient(circle at 12% 30%, rgba(255,255,255,0.18) 0 2px, transparent 3px),
-    radial-gradient(circle at 28% 65%, rgba(255,255,255,0.14) 0 2px, transparent 3px),
-    radial-gradient(circle at 52% 40%, rgba(255,255,255,0.10) 0 1px, transparent 3px),
-    radial-gradient(circle at 75% 58%, rgba(255,255,255,0.18) 0 2px, transparent 3px);
-  opacity: .65;
-  animation: sparkleFloat 10s linear infinite;
-}
+/* =========================
+   CANVAS
+   ========================= */
 
-@keyframes sparkleFloat{
-  0%{ transform: translateY(0); }
-  50%{ transform: translateY(-16px); }
-  100%{ transform: translateY(0); }
-}
-
-/* Glow waves */
-.contactSlideWrap::after{
-  content:"";
-  position:absolute;
-  inset:-80px;
-  pointer-events:none;
-  z-index:0;
-  background:
-    radial-gradient(720px 260px at 30% 55%, rgba(0,255,200,0.18), transparent 60%),
-    radial-gradient(620px 260px at 70% 45%, rgba(120,180,255,0.18), transparent 62%),
-    radial-gradient(520px 200px at 55% 75%, rgba(180,120,255,0.14), transparent 65%);
-  filter: blur(12px);
-  opacity: .9;
-  animation: waveFloat 9s ease-in-out infinite;
-}
-
-@keyframes waveFloat{
-  0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-14px); }
-}
-
-/* ===== MAIN CANVAS ===== */
-.contactCanvas{
-  width: min(1100px, 92vw);
+.contactCanvas {
   position: relative;
   z-index: 2;
-}
-
-/* ===== HEADER ===== */
-.contactTop{
-  text-align: center;
-  margin-bottom: 22px;
-}
-
-.contactKicker{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:6px 14px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.86);
-  font-weight: 800;
-  font-size: 12.5px;
-  margin-bottom: 12px;
-}
-
-.kDot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#5ef2c6;
-  box-shadow:0 0 14px #5ef2c6;
-}
-
-.contactSlideTitle{
-  margin: 6px 0 8px;
-  font-size: clamp(38px, 4vw, 56px);
-  font-weight: 950;
-  color: rgba(255,255,255,0.96);
-  text-shadow: 0 14px 34px rgba(0,0,0,0.30);
-}
-
-.contactSlideTitle span{
-  color:#5ef2c6;
-}
-
-.contactSubtitle{
-  font-size: 16px;
-  color: rgba(255,255,255,0.82);
-  max-width: 720px;
+  max-width: 1100px;
   margin: auto;
-  line-height: 1.7;
+  padding: 0 18px;
 }
 
-/* ===== GLASS CARD ===== */
-.contactCard{
-  margin-top: 18px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, var(--glassA), var(--glassB));
-  border: 1px solid var(--stroke);
-  backdrop-filter: blur(18px);
-  box-shadow: var(--shadow);
-  padding: 26px;
+/* =========================
+   HEADER
+   ========================= */
+
+.contactTop {
+  margin-bottom: 32px;
+}
+
+.contactKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 10px;
+}
+
+.contactDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d4af37;
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.18);
+}
+
+.contactSlideTitle {
+  margin: 0 0 8px;
+  font-size: clamp(38px, 5vw, 56px);
+  font-weight: 950;
+  color: #ffffff;
+}
+
+.contactSlideTitle span {
+  color: #d4af37;
+}
+
+.contactSubtitle {
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* =========================
+   MAIN CARD
+   ========================= */
+
+.contactCard {
   display: grid;
-  grid-template-columns: 86px 1fr;
-  gap: 20px;
+  grid-template-columns: 80px 1fr;
+  gap: 22px;
+  border-radius: 28px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.85);
 }
 
-/* Icon bubble */
-.contactIcon{
-  width: 72px;
-  height: 72px;
-  border-radius: 999px;
+/* icon bubble */
+.contactIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
   font-size: 28px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.28);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
-  color: rgba(255,255,255,0.94);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #d4af37;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55);
 }
 
-/* Text */
-.contactText h3{
-  margin: 0;
-  font-size: 26px;
+/* =========================
+   TEXT CONTENT
+   ========================= */
+
+.contactText h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
   font-weight: 900;
-  color: rgba(255,255,255,0.96);
+  color: #ffffff;
 }
 
-.contactText p{
-  margin: 10px 0 14px;
-  font-size: 15.5px;
+.contactText p {
+  margin: 0 0 18px;
+  font-size: 15px;
   line-height: 1.7;
-  color: rgba(255,255,255,0.84);
+  color: rgba(255, 255, 255, 0.82);
 }
 
-/* Links */
-.contactLinks{
+.contactText strong {
+  color: #ffffff;
+}
+
+/* =========================
+   ICON LINKS
+   ========================= */
+
+.contactLinks {
   display: flex;
   gap: 14px;
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 }
 
-.contactLinks a{
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
+.contactLinks a {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.28);
-  color: rgba(255,255,255,0.94);
   font-size: 20px;
-  transition: transform .18s ease, background .18s ease;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  transition: all 0.25s ease;
 }
 
-.contactLinks a:hover{
-  transform: translateY(-2px) scale(1.06);
-  background: rgba(255,255,255,0.22);
+.contactLinks a:hover {
+  transform: translateY(-3px);
+  color: #d4af37;
+  border-color: rgba(212, 175, 55, 0.55);
 }
 
-/* Meta info */
-.contactMeta{
+/* =========================
+   META INFO
+   ========================= */
+
+.contactMeta {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   font-size: 14px;
-  font-weight: 800;
-  color: rgba(255,255,255,0.78);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
 }
 
-.contactMeta i{
+.contactMeta i {
+  color: #d4af37;
   margin-right: 6px;
-  color: #5ef2c6;
 }
 
-/* CTA buttons */
-.contactCTA{
-  margin-top: 16px;
+/* =========================
+   CTA BUTTONS
+   ========================= */
+
+.contactCTA {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
-.contactBtn{
-  padding: 12px 18px;
-  border-radius: 999px;
-  font-weight: 900;
-  font-size: 14px;
+.contactBtn {
+  padding: 12px 20px;
+  border-radius: 16px;
+  font-weight: 800;
+  text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(255,255,255,0.28);
-  cursor: pointer;
-  transition: transform .18s ease, background .18s ease;
+  transition: 0.25s ease;
 }
 
-.contactBtn.primary{
-  background: linear-gradient(135deg,#5ef2c6,#6ab8ff);
-  color: #06121a;
+.contactBtn.primary {
+  background: linear-gradient(135deg, #d4af37, #b88a00);
+  color: #0b0b0b;
+  box-shadow: 0 18px 50px rgba(212, 175, 55, 0.28);
 }
 
-.contactBtn.ghost{
-  background: rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.94);
+.contactBtn.primary:hover {
+  transform: translateY(-2px);
 }
 
-.contactBtn:hover{
-  transform: translateY(-2px) scale(1.05);
+.contactBtn.ghost {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #ffffff;
 }
 
-/* Footer hint */
-.contactHint{
+.contactBtn.ghost:hover {
+  color: #d4af37;
+  border-color: rgba(212, 175, 55, 0.55);
+}
+
+/* =========================
+   FOOTER NOTE
+   ========================= */
+
+.contactHint {
   margin-top: 14px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 800;
-  color: rgba(255,255,255,0.72);
+  color: rgba(255, 255, 255, 0.72);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 720px){
-  .contactCard{
+.contactHint i {
+  color: #d4af37;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 860px) {
+  .contactCard {
     grid-template-columns: 1fr;
   }
-  .contactIcon{
+
+  .contactIcon {
     margin-bottom: 6px;
   }
 }
+

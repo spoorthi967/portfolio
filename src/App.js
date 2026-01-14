@@ -16,9 +16,8 @@ import Skills from "./pages/skills";
 import Contactus from "./pages/contactus";
 
 // Assets
-import logo from "./Images/b1.png";
+import logo from "./Images/logo5.png";
 import clickSound from "./Images/click.mp3";
-import bg from "./Images/bg.avif";
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,18 +43,13 @@ const App = () => {
     playClickSound();
   };
 
-  // active class helper (so active link highlights)
+  // active class helper
   const navClass = ({ isActive }) => `nav-item ${isActive ? "active" : ""}`;
   const navClassCTA = ({ isActive }) =>
     `nav-item nav-cta ${isActive ? "active" : ""}`;
 
   return (
-    <div className="appBg" style={{ backgroundImage: `url(${bg})` }}>
-      {/* GLOBAL BACKGROUND LAYERS */}
-      <div className="bgOverlay" aria-hidden="true" />
-      <div className="bgWaves" aria-hidden="true" />
-      <div className="bgSparkles" aria-hidden="true" />
-
+    <div className="appBg">
       {/* ===== NAVBAR ===== */}
       <header className="app-navbar">
         <div className="nav-inner">
@@ -89,7 +83,11 @@ const App = () => {
             <NavLink to="/skills" onClick={playClickSound} className={navClass}>
               Skills
             </NavLink>
-            <NavLink to="/contact" onClick={playClickSound} className={navClassCTA}>
+            <NavLink
+              to="/contact"
+              onClick={playClickSound}
+              className={navClassCTA}
+            >
               Contact
             </NavLink>
           </nav>
@@ -116,16 +114,28 @@ const App = () => {
           <NavLink to="/about" onClick={handleNavClick} className={navClass}>
             About Me
           </NavLink>
-          <NavLink to="/education" onClick={handleNavClick} className={navClass}>
+          <NavLink
+            to="/education"
+            onClick={handleNavClick}
+            className={navClass}
+          >
             Education
           </NavLink>
-          <NavLink to="/experience" onClick={handleNavClick} className={navClass}>
+          <NavLink
+            to="/experience"
+            onClick={handleNavClick}
+            className={navClass}
+          >
             Experience
           </NavLink>
           <NavLink to="/skills" onClick={handleNavClick} className={navClass}>
             Skills
           </NavLink>
-          <NavLink to="/contact" onClick={handleNavClick} className={navClassCTA}>
+          <NavLink
+            to="/contact"
+            onClick={handleNavClick}
+            className={navClassCTA}
+          >
             Contact Us
           </NavLink>
         </nav>

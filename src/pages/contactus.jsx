@@ -4,45 +4,45 @@ import "./contactus.css";
 const Contactus = () => {
   return (
     <section className="contactSlideWrap">
-      {/* floating orbs like Skills/Home */}
-      <div className="contactFloatLayer">
+      {/* floating orbs (gold/white only) */}
+      <div className="contactFloatLayer" aria-hidden="true">
         <span
           className="orb"
           style={{
-            width: 240,
-            height: 240,
-            top: "18%",
-            left: "10%",
-            background: "rgba(0,255,200,0.45)",
+            width: 260,
+            height: 260,
+            top: "16%",
+            left: "8%",
+            background: "rgba(212,175,55,0.26)",
           }}
         />
         <span
           className="orb"
           style={{
-            width: 200,
-            height: 200,
+            width: 220,
+            height: 220,
             bottom: "14%",
-            right: "12%",
-            background: "rgba(120,180,255,0.45)",
+            right: "10%",
+            background: "rgba(255,255,255,0.14)",
           }}
         />
         <span
           className="orb"
           style={{
-            width: 120,
-            height: 120,
+            width: 140,
+            height: 140,
             top: "55%",
             left: "42%",
-            background: "rgba(180,120,255,0.40)",
+            background: "rgba(212,175,55,0.16)",
           }}
         />
       </div>
 
       <div className="contactCanvas">
-        {/* Header same style as other pages */}
+        {/* Header */}
         <div className="contactTop">
           <div className="contactKicker">
-            <span className="kDot" />
+            <span className="contactDot" />
             Contact • Let’s Connect • Open to Roles
           </div>
 
@@ -56,19 +56,17 @@ const Contactus = () => {
           </p>
         </div>
 
-        {/* Glass card like Education */}
+        {/* Glass card */}
         <div className="contactCard">
-          {/* left icon bubble */}
           <div className="contactIcon">
             <i className="bi bi-chat-dots-fill" />
           </div>
 
-          {/* content */}
           <div className="contactText">
             <h3>Let’s Connect</h3>
 
             <p>
-              If you’re hiring for <strong>Marketing Automation, Marketo, or Marketing Ops</strong>,
+             
               I’d love to connect. I can share portfolio work, case studies, and availability.
             </p>
 
