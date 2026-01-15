@@ -1,248 +1,338 @@
 /* ===============================
-   GLOBAL THEME VARIABLES
-================================ */
-:root{
-  --text: rgba(255,255,255,0.94);
-  --muted: rgba(255,255,255,0.70);
-  --stroke: rgba(255,255,255,0.10);
+   EXPERIENCE – PREMIUM BLACK + GOLD
+   =============================== */
 
-  /* DARK glass */
-  --glassA: rgba(255,255,255,0.035);
-  --glassB: rgba(255,255,255,0.015);
-
-  --shadow: 0 40px 120px rgba(0,0,0,0.85);
-  --gold: #d4af37;
-}
-
-*{ box-sizing: border-box; }
-
-/* ===============================
-   PAGE WRAP – PURE BLACK
-================================ */
-.expSlideWrap{
-  background: #000000;
+.expShell {
+  background: #000;
+  color: #fff;
+  padding: 90px 6vw;
   min-height: 100vh;
-  padding: 32px 0 56px;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
 }
 
-/* ===============================
-   SUBTLE GOLD SPARKLES (MINIMAL)
-================================ */
-.expSlideWrap::before{
-  content:"";
-  position:absolute;
-  inset:-60px;
-  z-index:0;
-  pointer-events:none;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(212,175,55,0.10) 0 2px, transparent 4px),
-    radial-gradient(circle at 55% 65%, rgba(255,255,255,0.04) 0 1px, transparent 4px),
-    radial-gradient(circle at 78% 25%, rgba(212,175,55,0.08) 0 2px, transparent 4px);
-  opacity: 0.30;
-  animation: expSparkle 16s linear infinite;
+.expContainer {
+  max-width: 1200px;
+  margin: auto;
 }
 
-@keyframes expSparkle{
-  0%{ transform: translateY(0); }
-  50%{ transform: translateY(-14px); }
-  100%{ transform: translateY(0); }
+/* ================= TOP ================= */
+
+.expTop {
+  text-align: center;
+  margin-bottom: 70px;
 }
 
-/* ===============================
-   SOFT GOLD GLOW (VERY LIGHT)
-================================ */
-.expSlideWrap::after{
-  content:"";
-  position:absolute;
-  inset:-120px;
-  z-index:0;
-  pointer-events:none;
-  background:
-    radial-gradient(420px 180px at 50% 55%, rgba(212,175,55,0.07), transparent 70%);
-  filter: blur(22px);
-  opacity: 0.30;
-  animation: expWave 14s ease-in-out infinite;
+.expKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.6px;
+  margin-bottom: 14px;
 }
 
-@keyframes expWave{
-  0%,100%{ transform: translateY(0); }
-  50%{ transform: translateY(-10px); }
+.kDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d4af37;
 }
 
-/* ===============================
-   MAIN CANVAS
-================================ */
-.expSliderCanvas{
-  width: min(1100px, 92vw);
-  position: relative;
-  z-index: 2;
-}
-
-/* ===============================
-   TITLE & INTRO
-================================ */
-.expSlideTitle{
-  margin-bottom: 10px;
-  font-size: clamp(38px, 4vw, 56px);
+.expTitle {
+  font-size: clamp(42px, 6vw, 64px);
   font-weight: 900;
-  color: var(--text);
-  text-shadow: 0 18px 40px rgba(0,0,0,0.7);
+  margin-bottom: 14px;
 }
 
-.expIntro{
-  max-width: 900px;
-  margin-bottom: 18px;
+.expTitle span {
+  color: #d4af37;
+}
+
+.expSubtitle {
+  max-width: 780px;
+  margin: auto;
   font-size: 16px;
   line-height: 1.7;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.75);
 }
 
-/* ===============================
-   GLASS SLIDER CONTAINER
-================================ */
-.expSlider{
-  margin-top: 16px;
+/* ================= CARD ================= */
+
+.expCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 28px;
-  background: linear-gradient(135deg, var(--glassA), var(--glassB));
-  border: 1px solid var(--stroke);
-  backdrop-filter: blur(18px);
-  box-shadow: var(--shadow);
-  padding: 20px 18px;
-  overflow: hidden;
+  padding: 26px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7);
 }
 
-/* ===============================
-   SLIDES TRACK
-================================ */
-.expSlides{
+.expCardTop {
   display: flex;
-  transition: transform 520ms cubic-bezier(.22,.8,.2,1);
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
 }
 
-/* ===============================
-   INDIVIDUAL SLIDE
-================================ */
-.expSlide{
-  min-width: 100%;
-  padding: 22px;
-  display: grid;
-  grid-template-columns: 86px 1fr;
-  gap: 22px;
-  border-radius: 22px;
-
-  /* DARK card */
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
-/* ===============================
-   ICON
-================================ */
-.expIcon{
-  width: 72px;
-  height: 72px;
+/* badge */
+.expBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
   border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.expBadge i {
+  color: #d4af37;
+}
+
+/* arrows */
+.expControls {
+  display: flex;
+  gap: 10px;
+}
+
+.expIconBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 26px;
-  color: var(--gold);
-
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(212,175,55,0.35);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: 0.2s ease;
 }
 
-/* ===============================
-   TEXT
-================================ */
-.expText h3{
-  margin: 0;
-  font-size: 26px;
+.expIconBtn:hover {
+  border-color: rgba(212, 175, 55, 0.65);
+  color: #d4af37;
+  transform: translateY(-1px);
+}
+
+/* progress */
+.expProgress {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  margin-bottom: 18px;
+}
+
+.expProgressFill {
+  height: 100%;
+  display: block;
+  background: linear-gradient(135deg, #d4af37, #b88a00);
+  width: 0%;
+  transition: width 0.45s ease;
+}
+
+/* ================= SLIDER ================= */
+
+.expSlider {
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.expSlides {
+  display: flex;
+  transition: transform 0.55s ease;
+  will-change: transform;
+}
+
+.expSlide {
+  min-width: 100%;
+  padding: 10px;
+}
+
+.expSlideInner {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 18px;
+  padding: 22px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* big icon box */
+.expIcon {
+  width: 62px;
+  height: 62px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.65);
+}
+
+.expIcon i {
+  color: #d4af37;
+  font-size: 22px;
+}
+
+.expRole {
+  font-size: 22px;
   font-weight: 900;
-  color: var(--text);
+  margin-bottom: 10px;
 }
 
-.expText span{
-  margin-top: 4px;
-  display: block;
-  font-size: 14.5px;
+/* meta row */
+.expMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 12px;
+  color: rgba(255, 255, 255, 0.72);
   font-weight: 800;
-  color: rgba(255,255,255,0.78);
-}
-
-.expText small{
-  display: block;
   font-size: 13px;
+}
+
+.expMeta i {
+  color: #d4af37;
+  margin-right: 6px;
+}
+
+/* story + desc */
+.expStory {
+  color: rgba(255, 255, 255, 0.88);
   font-weight: 700;
-  color: rgba(255,255,255,0.55);
+  line-height: 1.75;
+  margin-bottom: 12px;
 }
 
-/* ===============================
-   CONTENT
-================================ */
-.expStory{
-  margin: 10px 0;
-  font-size: 14.8px;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.78);
-}
-
-.expDesc{
-  margin: 6px 0 10px;
+.expDesc {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.75;
   font-size: 15px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.82);
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 14px;
 }
 
-.expPoints{
-  padding-left: 18px;
-  margin-top: 6px;
+/* points (reduced + gold checks) */
+.expPoints {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
 }
 
-.expPoints li{
-  margin-bottom: 6px;
+.expPoints li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.86);
   font-size: 14.5px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.75);
 }
 
-/* ===============================
-   DOT NAVIGATION
-================================ */
-.expDots{
+.expPoints li i {
+  color: #d4af37;
+  margin-top: 2px;
+}
+
+/* footer row */
+.expFootRow {
+  margin-top: 12px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.62);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.expCount {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.expCountNum {
+  color: #d4af37;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.expCountSep {
+  opacity: 0.7;
+}
+
+.expCountTotal {
+  opacity: 0.8;
+}
+
+.expHint i {
+  color: #d4af37;
+  margin-right: 6px;
+}
+
+/* dots */
+.expDots {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 16px;
+  margin-top: 18px;
 }
 
-.expDots .dot{
-  width: 9px;
-  height: 9px;
+.dot {
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.25);
+  border: none;
   cursor: pointer;
-  transition: transform .2s ease, background .2s ease;
+  background: rgba(255, 255, 255, 0.18);
+  transition: 0.25s ease;
 }
 
-.expDots .dot.active{
-  background: var(--gold);
-  transform: scale(1.25);
+.dot.active {
+  width: 28px;
+  background: #d4af37;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (max-width: 720px){
-  .expSlide{
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 980px) {
+  .expCard {
+    padding: 18px;
+  }
+
+  .expSlideInner {
     grid-template-columns: 1fr;
   }
 
-  .expIcon{
-    margin-bottom: 6px;
+  .expIcon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+
+  .expRole {
+    font-size: 20px;
   }
 }
+
+@media (max-width: 680px) {
+  .expDesc {
+    text-align: left;
+  }
+
+  .expFootRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
